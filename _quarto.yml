@@ -21,6 +21,8 @@ format:
     dark: slate
     css: styles.css
     
+ execute:
+  freeze: auto   
 
 
 
