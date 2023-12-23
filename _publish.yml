@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 0ebcf7e9-7d1e-498e-8c6e-b7c0798bffab
+      url: 'https://fantastic-llama-d7b14c.netlify.app'
