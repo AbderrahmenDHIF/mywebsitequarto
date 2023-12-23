@@ -1,0 +1,29 @@
+/* css styles */
+img {
+    margin: 0px;
+}
+
+div.description {
+    font-size: 25px;
+    text-align: center;
+    color:white;
+  }
+
+  h1.title{
+    color:white
+  }
+
+  h3{
+    color:white
+  }
+
+  p{
+    color:white
+  }
+
+  body {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)) ,url("img/back4.png");
+    background-size: 100% 100%;
+    background-position: cover;
+    background-repeat: no-repeat;
+  }

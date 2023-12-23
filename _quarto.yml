@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: Abderrahmen Dhif
+  favicon: img/logo.png
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: CV
+
+format:
+   html:
+    highlight-style: a11y
+    theme: solar
+    light: flatly
+    dark: slate
+    css: styles.css
+    
+
+
+
