@@ -20,15 +20,15 @@ website:
       - href: blog.qmd
         text: "{{< fa solid pencil >}} Blog" 
     right: 
-      - href: https://www.linkedin.com/in/abderrahmen-dhif-84011873/
-        icon: linkedin
-          target: _blank
+      - icon: linkedin
+        target: _blank
+        href: https://www.linkedin.com/in/abderrahmen-dhif-84011873/
       - href: mailto:dhif.abderramen@gmail.com
         icon: envelope
-          target: _blank
+        target: _blank
       - href: https://github.com/AbderrahmenDHIF
         icon: github
-          target: _blank
+        target: _blank
          
 
        
