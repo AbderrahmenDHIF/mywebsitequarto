@@ -8,8 +8,8 @@ website:
   page-navigation: true
   google-analytics: "G-N3H9QQKM0Q"
   cookie-consent: 
-    type: implied 
-    style: headline
+    type: express 
+    style: interstitial 
     palette: dark
   navbar:
     left:
