@@ -21,7 +21,7 @@ website:
         text: "{{< fa solid pencil >}} Blog" 
 
   page-footer: 
-    center: "© 2023 Abderrahmen DHIF. All rights reserved."
+    left: "© 2023 Abderrahmen DHIF"
 
 format:
    html:
