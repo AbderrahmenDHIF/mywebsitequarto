@@ -7,13 +7,18 @@ website:
   favicon: img/logo.png
   page-navigation: true
   google-analytics: "G-N3H9QQKM0Q"
-  cookie-consent: true
+  cookie-consent: 
+    type: implied 
+    style: headline
+    palette: dark
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: About
       - href: about.qmd
         text: CV
+      - href: blog.qmd
+        text: Blog
 
 format:
    html:
