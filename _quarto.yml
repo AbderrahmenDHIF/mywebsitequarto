@@ -22,10 +22,13 @@ website:
     right: 
       - href: https://www.linkedin.com/in/abderrahmen-dhif-84011873/
         icon: linkedin
+          target: _blank
       - href: mailto:dhif.abderramen@gmail.com
         icon: envelope
+          target: _blank
       - href: https://github.com/AbderrahmenDHIF
         icon: github
+          target: _blank
          
 
        

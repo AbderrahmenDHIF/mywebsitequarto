@@ -10,15 +10,19 @@ about:
     - icon: linkedin
       aria-label: linkedin
       href: https://www.linkedin.com/in/abderrahmen-dhif-84011873/
+      target: _blank
     - icon: twitter
       aria-label: twitter
       href: https://twitter.com/dhifabderrahmen
+      target: _blank
     - icon: github
       aria-label: github
       href: https://github.com/AbderrahmenDHIF
+      target: _blank
     - icon: envelope
       aria-label: Email
       href: mailto:dhif.abderramen@gmail.com
+      target: _blank
 ---
 
 
