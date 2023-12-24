@@ -19,6 +19,16 @@ website:
         text: "{{< fa solid file >}} CV"  
       - href: blog.qmd
         text: "{{< fa solid pencil >}} Blog" 
+    right: 
+      - href: https://www.linkedin.com/in/abderrahmen-dhif-84011873/
+        icon: linkedin
+      - href: mailto:dhif.abderramen@gmail.com
+        icon: envelope
+      - href: https://github.com/AbderrahmenDHIF
+        icon: github
+         
+
+       
 
   page-footer: 
     left: "© 2023 Abderrahmen DHIF"
