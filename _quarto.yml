@@ -6,6 +6,8 @@ website:
   title: Abderrahmen Dhif
   favicon: img/logo.png
   page-navigation: true
+  google-analytics: "G-N3H9QQKM0Q"
+  cookie-consent: true
   navbar:
     left:
       - href: index.qmd
