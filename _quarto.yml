@@ -14,11 +14,14 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: About
+        text: "{{< fa solid user >}} About" 
       - href: about.qmd
-        text: CV
+        text: "{{< fa solid file >}} CV"  
       - href: blog.qmd
-        text: Blog
+        text: "{{< fa solid pencil >}} Blog" 
+
+  page-footer: 
+    center: "© 2023 Abderrahmen DHIF. All rights reserved."
 
 format:
    html:
