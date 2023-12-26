@@ -15,7 +15,7 @@ website:
     left:
       - href: index.qmd
         text: "{{< fa solid user >}} About" 
-      - href: about.qmd
+      - href: cv.qmd
         text: "{{< fa solid file >}} CV"  
       - href: blog.qmd
         text: "{{< fa solid pencil >}} Blog" 
