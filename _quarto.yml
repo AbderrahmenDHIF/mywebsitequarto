@@ -39,13 +39,17 @@ website:
 format:
    html:
     highlight-style: a11y
-    theme: solar
-    light: flatly
-    dark: slate
-    css: styles.css
+    theme: 
+      light: [cosmo,ligh.scss,img/DSS2-light.png]
+      dark: [cosmo,dark.scss,img/DSS2-dark.png]
+    css: style_g.css
 
 execute:
   freeze: auto   
 
-
+include-after-body:
+  text: |
+    <script type="application/javascript" src="script.js"></script>
+resources: 
+  - img/*
 

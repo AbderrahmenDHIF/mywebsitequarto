@@ -1,0 +1,16 @@
+/*-- scss:defaults --*/
+// Base document colors
+$body-bg: white;
+$navbar-bg: white;
+$link-color: #75AADB;
+
+// Code blocks
+$code-block-bg-alpha: -.8;
+
+
+body {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.8)) ,url("img/back7.png");
+    background-size: 100% 100%;
+    background-position: cover;
+    background-repeat: no-repeat;
+  }

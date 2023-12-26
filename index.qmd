@@ -32,5 +32,6 @@ about:
  {{< fa users >}} Clustering&nbsp;&nbsp;&nbsp;     {{< fa bullseye >}} Scoring &nbsp;&nbsp;&nbsp;   {{< fa chart-line >}} Reporting automatique&nbsp;&nbsp;&nbsp;  
 
  #Machine learning&nbsp;&nbsp;&nbsp;#Statistique&nbsp;&nbsp;&nbsp;#Connaissance client&nbsp;&nbsp;&nbsp;#Retail&nbsp;&nbsp;&nbsp;#Marketing&nbsp;&nbsp;&nbsp;#CRM   
-{{< fa brands r-project size=Huge >}} &nbsp;&nbsp;&nbsp;{{< fa brands python size=Huge >}}&nbsp;&nbsp;&nbsp; {{< fa brands git-alt size=Huge >}}&nbsp;&nbsp;&nbsp; ![](img/DSS2.png){width=90px height=40px style="vertical-align:top"} 
+{{< fa brands r-project size=Huge >}} &nbsp;&nbsp;&nbsp;{{< fa brands python size=Huge >}}&nbsp;&nbsp;&nbsp; {{< fa brands git-alt size=Huge >}}&nbsp;&nbsp;&nbsp; ![](img/DSS2-dark.png){width=90px height=40px style="vertical-align:top"} 
+
 
