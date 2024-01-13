@@ -40,8 +40,8 @@ format:
    html:
     highlight-style: a11y
     theme: 
-      light: [cosmo,ligh.scss,img/DSS2-light.png]
-      dark: [cosmo,dark.scss,img/DSS2-dark.png]
+      light: [cosmo,ligh.scss,img/DSS2-light.png,img/crl-light.png,img/mgn-light.png,img/airfance-light.png,img/Darty-light.png,img/vivarte-light.png]
+      dark: [cosmo,dark.scss,img/DSS2-dark.png,img/crl-dark.png,img/mgn-dark.png,img/airfance-dark.png,img/Darty-dark.png,img/vivarte-dark.png]
     css: style_g.css
 
 execute:

@@ -22,7 +22,7 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 
 ### Senior Data Scientist/Analyst
 
-***Caroll & Morgan*** [10/2022 -- Aujourd'hui]{.cvdate} <br>
+***Caroll & Morgan*** [10/2022 -- Aujourd'hui]{.cvdate} <br> ![](img/crl-dark.png){width=30px height=60px style="float:right; margin-right:20px; margin-top:40px"} ![](img/mgn-dark.png){width=80px height=30px style="float:right; margin-right:20px; margin-top:60px"} 
 ***Marketing clients***
 
 * Création de reporting interactifs en RMarkdown et RShiny
@@ -33,7 +33,7 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 
 ### Data Scientist/Analyst
 
-***Caroll*** [06/2019 -- 10/2022]{.cvdate} <br>
+***Caroll*** [06/2019 -- 10/2022]{.cvdate} <br> ![](img/crl-dark.png){width=35px height=80px style="float:right; margin-right:40px; margin-top:40px"} 
 ***Marketing clients***
 
 * Analyse des données clients
@@ -44,18 +44,18 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 
 ### Consultant Data Scientist/Analyst {style="page-break-before: always"}
 
-***AI&DATA*** [07/2017 -- 06/2019]{.cvdate} <br>
+***AI&DATA*** [07/2017 -- 06/2019]{.cvdate} <br> ![](img/aid.png){width=50px height=50px style="float:right; margin-right:30px; margin-top:20px"} 
 ***Marketing clients***
 
 * Consultant Data Scientist
 
-***Air France*** [12/2018 -- 06/2019]{.cvdate} <br>
+***Air France*** [12/2018 -- 06/2019]{.cvdate} <br> ![](img/airfrance-dark.png){width=120px height=35px style="float:right; margin-right:10px; margin-top:20px"} 
 ***Customer & Market insight***
 
 * Optimisation de la segmentation clients
 * Analyse textmining des commentaires
 
-***Fnac‑Darty*** [11/2017 -- 10/2018]{.cvdate} <br>
+***Fnac‑Darty*** [11/2017 -- 10/2018]{.cvdate} <br> ![](img/fnac.png){width=50px height=50px style="float:right; margin-right:15px; margin-top:20px"} ![](img/Darty-dark.png){width=50px height=50px style="float:right; margin-right:15px; margin-top:20px"}
 ***Connaissance clients***
 
 * Manipulation de données et requétage sur un cluster hadoop
@@ -65,7 +65,7 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 * Ciblage et bilan de campagne marketing
 * Analyse de ré‑achat
 
-***Systeme U*** [08/2017 -- 11/2017]{.cvdate} <br>
+***Systeme U*** [08/2017 -- 11/2017]{.cvdate} <br> ![](img/Systeme_U_2009_logo.png){width=130px height=40px style="float:right; margin-right:1px; margin-top:20px"} 
 ***Connaissance clients***
 
 * Classification des produits selon la mixité
@@ -74,7 +74,7 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 * Classification des produits
 
 ### Data Scientist/Analyst
-***Vivarte groupe*** [04/2016 -- 07/2017]{.cvdate} <br>
+***Vivarte groupe*** [04/2016 -- 07/2017]{.cvdate} <br> ![](img/vivarte-dark.png){width=100px height=25px style="float:right; margin-right:10px; margin-top:20px"} 
 ***Connaissance clients***
 
 * Analyse de l’impact des opérations commerciales
@@ -85,8 +85,8 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 * Modélisation de score de ré‑achat des clients pour une campagne mailing
 * Analyse du ré‑achat selon les leviers d’acquisition de trafic (SEO, SEA, display …)
 
-### Data Scientist/Analyst {style="page-break-before: always"}
-***Ooredoo*** [03/2015 -- 07/2015]{.cvdate} <br>
+### Data Scientist/Analyst {style="page-break-before: always"} 
+***Ooredoo*** [03/2015 -- 07/2015]{.cvdate} <br> ![](img/Ooredoo.png){width=100px height=20px style="float:right; margin-right:10px; margin-top:20px"} 
 ***Connaissance clients***
 
 * Modélisation de la valeur client (CLV)
