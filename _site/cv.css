@@ -1,0 +1,31 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&display=swap');
+
+/* all formats */
+
+.cvdate {
+  float: right;
+  font-style: italic
+}
+
+.imgcv{
+  border-radius: 50%;
+  height: 8em;
+  width: 8em;
+  size: 8em;
+  float: right;
+}
+
+
+
+header h1.title {
+  text-align: left;
+  float: left;
+}
+
+.auto {
+  text-justify: auto;
+  margin-right: 13em;
+  font-size: 0.8em;
+  margin-bottom: 0px;
+}

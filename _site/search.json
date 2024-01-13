@@ -5,5 +5,40 @@
     "title": "Data Scientist/Analyst",
     "section": "",
     "text": "J’aide les entreprises à exploiter pleinement la puissance de leurs données et à créer de la valeur \n\n Clustering     Scoring      Reporting automatique   \n#Machine learning   #Statistique   #Connaissance client   #Retail   #Marketing   #CRM"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Data Scientist/Analyst",
+    "section": "",
+    "text": "Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le retail. Mon expertise se concentre sur la création de scores d’appétence produits, la segmentation comportementale client/magasin, l’analyse de la mixité des produits, ainsi que dans la mise en place de bilans clients et de rapports automatiques. Mon objectif principal est d’aider les entreprises à prendre des décisions stratégiques éclairées, en s’appuyant sur une compréhension approfondie de leurs clients, de leurs produits et de leur réseau de distribution."
+  },
+  {
+    "objectID": "cv.html#formation",
+    "href": "cv.html#formation",
+    "title": "Data Scientist/Analyst",
+    "section": "Formation",
+    "text": "Formation\nMASTER 2 STATISTIQUE Université de Reims, France 2015 — 2016  INGÉNIEUR EN STATISTIQUE  ESSAIT Tunis, Tunisie 2012 — 2015 CLASSE PRÉPARATOIRE MATH‑PHYSIQUE  Ecole préparatoire Kairouan, Tunisie 2010 — 2012"
+  },
+  {
+    "objectID": "cv.html#expériences-professionnelles",
+    "href": "cv.html#expériences-professionnelles",
+    "title": "Data Scientist/Analyst",
+    "section": "Expériences professionnelles",
+    "text": "Expériences professionnelles\n\nSenior Data Scientist/Analyst\nCaroll & Morgan 10/2022 – Aujourd’hui  Marketing clients\n\nCréation de reporting interactifs en RMarkdown et RShiny\nSegmentation comportementale des clients\nSegmentation comportementale des boutiques\nDéveloppement de la connaissance client à l’échelle local\nReporting automatique et analyse des données clients\n\n\n\nData Scientist/Analyst\nCaroll 06/2019 – 10/2022  Marketing clients\n\nAnalyse des données clients\nReporting automatique et analyse des données clients\nScoring appétence produits\nSegmentation comportementale des clients\nAnalyse de mixité produits\n\n\n\nConsultant Data Scientist/Analyst\nAI&DATA 07/2017 – 06/2019  Marketing clients\n\nConsultant Data Scientist\n\nAir France 12/2018 – 06/2019  Customer & Market insight\n\nOptimisation de la segmentation clients\nAnalyse textmining des commentaires\n\nFnac‑Darty 11/2017 – 10/2018  Connaissance clients\n\nManipulation de données et requétage sur un cluster hadoop\nCréation d’agrégats et calcul de KPIs\nCréation de reporting interactifs en R Markdown et R Shiny\nAnalyse de comportement des clients web\nCiblage et bilan de campagne marketing\nAnalyse de ré‑achat\n\nSysteme U 08/2017 – 11/2017  Connaissance clients\n\nClassification des produits selon la mixité\nCalcul des indices de mixité entre les produits\nEtablissement des règles d’associations\nClassification des produits\n\n\n\nData Scientist/Analyst\nVivarte groupe 04/2016 – 07/2017  Connaissance clients\n\nAnalyse de l’impact des opérations commerciales\nMise en place de reportings commerciaux\nAudit de base de données\nSegmentation RFM\nEtude géomarketing sur les clients web (géolocalisation des clients et des magasins)\nModélisation de score de ré‑achat des clients pour une campagne mailing\nAnalyse du ré‑achat selon les leviers d’acquisition de trafic (SEO, SEA, display …)\n\n\n\nData Scientist/Analyst\nOoredoo 03/2015 – 07/2015  Connaissance clients\n\nModélisation de la valeur client (CLV)\nModélisation de la probabilité de churn et du chiffre d’affaires moyen par abonné\nAnalyse du comportement des abonnés (CA, fréquence d’achat …)\nMise en place d’une application à l’aide de R Shiny"
+  },
+  {
+    "objectID": "cv.html#envirennement-technique",
+    "href": "cv.html#envirennement-technique",
+    "title": "Data Scientist/Analyst",
+    "section": "Envirennement technique",
+    "text": "Envirennement technique\nR, SQL, Python, Datatiku, SAS, Snowflake  TIDYVERSE, SHINY, RMARKDOWN, PANDAS,NUMPY …\n\nClustering, Scoring\nData management, Statistiques descriptives, Machine learning, Reportings interactifs"
+  },
+  {
+    "objectID": "cv.html#centres-dintérêt",
+    "href": "cv.html#centres-dintérêt",
+    "title": "Data Scientist/Analyst",
+    "section": "Centres d’intérêt",
+    "text": "Centres d’intérêt\nPBC3‑Club de basket‑ball Joueur de basket-ball  Art génerative Création artistique à l’aide d’algorithmes"
   }
 ]
