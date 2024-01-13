@@ -39,7 +39,7 @@
     "href": "blog.html",
     "title": "En cours …",
     "section": "",
-    "text": "No matching items"
+    "text": "Segmentation RFM dans le Retail\n\n\n\n\n\n\n\nPython\n\n\nR\n\n\nMarketing\n\n\nConnaissance Client\n\n\n\n\nUne approche stratégique et simple pour améliorer la gestion de la clientèle est la segmentation RFM (Récence, Fréquence, Montant)\n\n\n\n\n\n\nJan 13, 2024\n\n\nAbderrahmen DHIF\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -47,5 +47,40 @@
     "title": "Data Scientist/Analyst",
     "section": "",
     "text": "J’aide les entreprises à exploiter pleinement la puissance de leurs données et à créer de la valeur \n\n Clustering     Scoring      Reporting automatique   \n#Machine learning   #Statistique   #Connaissance client   #Retail   #Marketing   #CRM"
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html",
+    "href": "posts/2024-01-13_RFM/index.html",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "",
+    "text": "Dans l’univers compétitif du retail, les marques cherchent souvent à identifier les clients ayant plus de valeur afin de mieux répondre à leurs attentes.\nLa segmentation RFM offre une solution précieuse pour atteindre cet objectif en identifiant des segments de clients aux comportements similaires."
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#contexte",
+    "href": "posts/2024-01-13_RFM/index.html#contexte",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "",
+    "text": "Dans l’univers compétitif du retail, les marques cherchent souvent à identifier les clients ayant plus de valeur afin de mieux répondre à leurs attentes.\nLa segmentation RFM offre une solution précieuse pour atteindre cet objectif en identifiant des segments de clients aux comportements similaires."
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#objectifs",
+    "href": "posts/2024-01-13_RFM/index.html#objectifs",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nComprendre les clients en fonction de leur récence d’achat, de leur fréquence d’achat et du montant dépensé.\nSegmenter les clients en groupes homogènes.\nProposer des stratégies marketing ciblées."
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#méthode",
+    "href": "posts/2024-01-13_RFM/index.html#méthode",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "Méthode",
+    "text": "Méthode\nen cours …"
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#conclusion",
+    "href": "posts/2024-01-13_RFM/index.html#conclusion",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "Conclusion",
+    "text": "Conclusion\nLa segmentation RFM s’est avérée être une méthode simple et facile à mettre en place pour comprendre et cibler nos clients de manière plus efficace. En identifiant des segments homogènes, nous pouvons personnaliser nos stratégies marketing, améliorer la fidélité client et optimiser nos campagnes promotionnelles.\nCependant, malgré ses avantages, la segmentation RFM a ses limites. Elle ne prend en compte que trois dimensions liées principalement à la valeur client, sans tenir compte d’autres aspects importants du comportement des clients, comme leurs préférences ou leurs habitudes d’achat. Les RFM se concentrent véritablement sur une perspective financière plutôt que sur le point de vue des clients.\nÀ mesure que l’entreprise gagne en maturité Data, il sera nécessaire de s’orienter vers une segmentation plus complète et plus stratégique, telle que la segmentation comportementale, pour une analyse plus détaillée et précise de nos clients en prenant en compte leurs préférences et leurs habitudes d’achat."
   }
 ]

@@ -4,7 +4,7 @@ description: "Une approche stratégique et simple pour améliorer la gestion de 
 date: 01-13-2024
 categories: [Python, R, Marketing, Connaissance Client] 
 image: RFM.png
-draft: true 
+draft: false 
 ---
 
 
