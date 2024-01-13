@@ -6,7 +6,7 @@ format:
 css: cv.css
 ---
 
-<img src="img/abde.jpg"  class="imgcv">
+<img src="img/Abde.jpg"  class="imgcv">
 <br>
 
 <p class="auto">
