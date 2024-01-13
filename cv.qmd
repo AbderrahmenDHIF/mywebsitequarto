@@ -2,7 +2,7 @@
 title: "Data Scientist/Analyst"
 format:
   html:
-    toc: false
+    toc: true
 css: cv.css
 ---
 
