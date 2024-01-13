@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content=" Connaissance client ">
+<meta name="author" content="Abderrahmen DHIF">
+<meta name="dcterms.date" content="2024-01-13">
+<meta name="description" content="Une approche stratégique et simple pour améliorer la gestion de la clientèle est la segmentation RFM (Récence, Fréquence, Montant)">
 
-<title>Abderrahmen Dhif - Data Scientist/Analyst</title>
+<title>Abderrahmen Dhif - Segmentation RFM dans le Retail</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,29 +26,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/logo.png" rel="icon" type="image/png">
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/animate-4.1.1/animate.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -92,20 +94,19 @@ cookieconsent.run({
 });
 </script> 
   
-<style>:root{--animate-duration:3s;--animate-delay:2s;--animate-repeat:1}</style>
 
 
-<link rel="stylesheet" href="style_g.css">
+<link rel="stylesheet" href="../../style_g.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Abderrahmen Dhif</span>
     </a>
   </div>
@@ -116,15 +117,15 @@ cookieconsent.run({
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-user" aria-label="user"></i> About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html" rel="" target="">
+    <a class="nav-link" href="../../cv.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-file" aria-label="file"></i> CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
+    <a class="nav-link" href="../../blog.html" rel="" target="">
  <span class="menu-text"><i class="fa-solid fa-pencil" aria-label="pencil"></i> Blog</span></a>
   </li>  
 </ul>
@@ -156,55 +157,88 @@ cookieconsent.run({
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#contexte" id="toc-contexte" class="nav-link active" data-scroll-target="#contexte">Contexte</a></li>
+  <li><a href="#objectifs" id="toc-objectifs" class="nav-link" data-scroll-target="#objectifs">Objectifs</a></li>
+  <li><a href="#méthode" id="toc-méthode" class="nav-link" data-scroll-target="#méthode">Méthode</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="img/abde.jpg" "="" class="about-image
-  round " style="height: 8em; width: 8em;">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Data Scientist/Analyst</h1>
-</div>
+<h1 class="title">Segmentation RFM dans le Retail</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Marketing</div>
+    <div class="quarto-category">Connaissance Client</div>
+  </div>
+  </div>
+
 <div>
   <div class="description">
-    <i class="fa-solid fa-users-viewfinder" aria-label="users-viewfinder"></i> Connaissance client <i class="fa-solid fa-users-viewfinder" aria-label="users-viewfinder"></i>
+    Une approche stratégique et simple pour améliorer la gestion de la clientèle est la segmentation RFM (Récence, Fréquence, Montant)
   </div>
 </div>
+
+
 <div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Abderrahmen DHIF </p>
+          </div>
   </div>
-</header><main class="content" id="quarto-document-content">
-<p><img src="img/logo.png" style="align:center;" width="50" height="50"></p>
-<section id="jaide-les-entreprises-à-exploiter-pleinement-la-puissance-de-leurs-données-et-à-créer-de-la-valeur-fa-solid-rocket-sizesmall" class="level3 animate__animated animate__headShake">
-<h3 data-anchor-id="jaide-les-entreprises-à-exploiter-pleinement-la-puissance-de-leurs-données-et-à-créer-de-la-valeur-fa-solid-rocket-sizesmall">J’aide les entreprises à exploiter pleinement la puissance de leurs données et à créer de la valeur <i class="fa-solid fa-rocket fa-small" aria-label="rocket"></i></h3>
-<hr>
-<p><i class="fa-solid fa-users" aria-label="users"></i> Clustering&nbsp;&nbsp;&nbsp; <i class="fa-solid fa-bullseye" aria-label="bullseye"></i> Scoring &nbsp;&nbsp;&nbsp; <i class="fa-solid fa-chart-line" aria-label="chart-line"></i> Reporting automatique&nbsp;&nbsp;&nbsp;</p>
-<p><span class="animate__animated animate__headShake" style="display: inline-block;">#Machine learning&nbsp;&nbsp;&nbsp;#Statistique&nbsp;&nbsp;&nbsp;#Connaissance client&nbsp;&nbsp;&nbsp;#Retail&nbsp;&nbsp;&nbsp;#Marketing&nbsp;&nbsp;&nbsp;#CRM</span></p>
-<p><i class="fa-brands fa-r-project fa-Huge" aria-label="r-project"></i> &nbsp;&nbsp;&nbsp;<i class="fa-brands fa-python fa-Huge" aria-label="python"></i>&nbsp;&nbsp;&nbsp; <i class="fa-brands fa-git-alt fa-Huge" aria-label="git-alt"></i>&nbsp;&nbsp;&nbsp; <img src="img/DSS2-dark.png" style="vertical-align:top" width="90" height="40"></p>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 13, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="contexte" class="level2">
+<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
+<p>Dans l’univers compétitif du retail, les marques cherchent souvent à identifier les clients ayant plus de valeur afin de mieux répondre à leurs attentes.</p>
+<p>La segmentation RFM offre une solution précieuse pour atteindre cet objectif en identifiant des segments de clients aux comportements similaires.</p>
+</section>
+<section id="objectifs" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs">Objectifs</h2>
+<ul>
+<li>Comprendre les clients en fonction de leur récence d’achat, de leur fréquence d’achat et du montant dépensé.</li>
+<li>Segmenter les clients en groupes homogènes.</li>
+<li>Proposer des stratégies marketing ciblées.</li>
+</ul>
+</section>
+<section id="méthode" class="level2">
+<h2 class="anchored" data-anchor-id="méthode">Méthode</h2>
+<p>en cours …</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>La segmentation RFM s’est avérée être une méthode simple et facile à mettre en place pour comprendre et cibler nos clients de manière plus efficace. En identifiant des segments homogènes, nous pouvons personnaliser nos stratégies marketing, améliorer la fidélité client et optimiser nos campagnes promotionnelles.</p>
+<p>Cependant, malgré ses avantages, la segmentation RFM a ses limites. Elle ne prend en compte que trois dimensions liées principalement à la valeur client, sans tenir compte d’autres aspects importants du comportement des clients, comme leurs préférences ou leurs habitudes d’achat. Les RFM se concentrent véritablement sur une perspective financière plutôt que sur le point de vue des clients.</p>
+<p>À mesure que l’entreprise gagne en maturité Data, il sera nécessaire de s’orienter vers une segmentation plus complète et plus stratégique, telle que la segmentation comportementale, pour une analyse plus détaillée et précise de nos clients en prenant en compte leurs préférences et leurs habitudes d’achat.</p>
+
+
 </section>
 
-
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://www.linkedin.com/in/abderrahmen-dhif-84011873/" class="about-link" rel="" target="_blank">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text"></span>
-  </a>
-  <a href="https://twitter.com/dhifabderrahmen" class="about-link" rel="" target="_blank">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text"></span>
-  </a>
-  <a href="https://github.com/AbderrahmenDHIF" class="about-link" rel="" target="_blank">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text"></span>
-  </a>
-  <a href="mailto:dhif.abderramen@gmail.com" class="about-link" rel="" target="_blank">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text"></span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -340,6 +374,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -556,7 +597,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script type="application/javascript" src="./script.js"></script>
+<script type="application/javascript" src="../../script.js"></script>
 
 
 

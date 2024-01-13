@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Scientist/Analyst",
-    "section": "",
-    "text": "J’aide les entreprises à exploiter pleinement la puissance de leurs données et à créer de la valeur \n\n Clustering     Scoring      Reporting automatique   \n#Machine learning   #Statistique   #Connaissance client   #Retail   #Marketing   #CRM"
-  },
-  {
     "objectID": "cv.html",
     "href": "cv.html",
     "title": "Data Scientist/Analyst",
@@ -40,5 +33,19 @@
     "title": "Data Scientist/Analyst",
     "section": "Centres d’intérêt",
     "text": "Centres d’intérêt\nPBC3‑Club de basket‑ball Joueur de basket-ball  Art génerative Création artistique à l’aide d’algorithmes"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "En cours …",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Scientist/Analyst",
+    "section": "",
+    "text": "J’aide les entreprises à exploiter pleinement la puissance de leurs données et à créer de la valeur \n\n Clustering     Scoring      Reporting automatique   \n#Machine learning   #Statistique   #Connaissance client   #Retail   #Marketing   #CRM"
   }
 ]
