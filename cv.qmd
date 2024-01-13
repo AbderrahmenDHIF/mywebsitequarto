@@ -10,7 +10,7 @@ css: cv.css
 <br>
 
 <p class="auto">
-Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le retail. Mon expertise se concentre sur la création de scores d'appétence produits, la segmentation comportementale client/magasin, l'analyse de la mixité des produits, ainsi que dans la mise en place de bilans clients et de rapports automatiques. Mon objectif principal est d'aider les entreprises à prendre des décisions stratégiques éclairées, en s'appuyant sur une compréhension approfondie de leurs clients, de leurs produits et de leur réseau de distribution. </p>
+Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le retail. Mon expertise se concentre sur la création de scores d'appétence produits, la segmentation comportementale client/magasin, l'analyse de la mixité des produits, ainsi que dans la mise en place de bilans clients et de rapports automatiques. Mon objectif principal est d'aider les entreprises à prendre des décisions stratégiques éclairées, en s'appuyant sur une compréhension approfondie de leurs clients, de leurs produits et de leur réseau de distribution. </p> ![](img/logo.png){width=50px height=50px style="float:right; margin-right:20px;"}
 
 ## Formation
 
