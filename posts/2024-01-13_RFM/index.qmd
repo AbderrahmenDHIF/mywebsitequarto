@@ -7,6 +7,7 @@ image: RFM.png
 draft: false 
 ---
 
+![](RFM.png)
 
 ## Contexte
 
@@ -14,20 +15,37 @@ Dans l'univers compétitif du retail, les marques cherchent souvent à identifie
 
 La segmentation RFM offre une solution précieuse pour atteindre cet objectif en identifiant des segments de clients aux comportements similaires.
 
-## Objectifs
+## Qu'est-ce que la Segmentation RFM ?
 
-* Comprendre les clients en fonction de leur récence d'achat, de leur fréquence d'achat et du montant dépensé.
-* Segmenter les clients en groupes homogènes.
-* Proposer des stratégies marketing ciblées.
+### R: Récence
 
-## Méthode
+Mesure le temps écoulé depuis le dernier achat d'un client. <br>
+Les clients qui ont acheté récemment sont plus susceptibles de se souvenir de leur expérience et sont souvent plus enclins à revenir.
+
+### F: Fréquence
+
+Evalue à quelle fréquence un client effectue des achats sur une période donnée. <br>
+Une fréquence d'achat élevée est généralement un indicateur de fidélité et de satisfaction du client.
+
+### M: Montant 
+
+Le montant analyse le total des dépenses d'un client. <br>
+Les clients qui dépensent beaucoup sont représentent une source de revenus significative pour l'entreprise.
+
+## Les Raisons Clés d'Adopter la Segmentation RFM
+
+* Personnalisation des Stratégies Marketing
+* Optimisation des Offres
+* Amélioration de la Fidélisation Client
+
+## Mise en œuvre
 
 en cours ...
 
 ## Conclusion
 
-La segmentation RFM s'est avérée être une méthode simple et facile à mettre en place pour comprendre et cibler nos clients de manière plus efficace. En identifiant des segments homogènes, nous pouvons personnaliser nos stratégies marketing, améliorer la fidélité client et optimiser nos campagnes promotionnelles.
+La segmentation RFM, avec sa simplicité et sa facilité d'implémentation, s'est révélée être un outil efficace pour cerner et cibler les clients. Elle permet de personnaliser les actions marketing et de renforcer la fidélité client.
 
-Cependant, malgré ses avantages, la segmentation RFM a ses limites. Elle ne prend en compte que trois dimensions liées principalement à la valeur client, sans tenir compte d'autres aspects importants du comportement des clients, comme leurs préférences ou leurs habitudes d'achat. Les RFM se concentrent véritablement sur une perspective financière plutôt que sur le point de vue des clients.
+Néanmoins, elle présente des limites, principalement son focus sur des aspects financiers, en négligeant d'autres facettes importantes du comportement client comme les préférences ou les habitudes d'achat. De plus, elle peut entraîner une sur-sollicitation des clients les plus fidèles, risquant de diminuer l'efficacité des efforts marketing.
 
 À mesure que l’entreprise gagne en maturité Data, il sera nécessaire de s’orienter vers une segmentation plus complète et plus stratégique, telle que la segmentation comportementale, pour une analyse plus détaillée et précise de nos clients en prenant en compte leurs préférences et leurs habitudes d'achat.
