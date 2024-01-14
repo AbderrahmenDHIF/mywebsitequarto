@@ -6,3 +6,8 @@ div.description {
     font-size: 25px;
     text-align: center;
   }
+  .animate__animated.animate__fadeInUp {
+    --animate-duration: 1s;
+  }
+
+  
