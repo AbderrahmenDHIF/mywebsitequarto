@@ -19,15 +19,21 @@ La segmentation RFM offre une solution précieuse pour atteindre cet objectif en
 
 ### R: Récence
 
+![](recence.png){fig-align="center" fig-alt="Calcul de la Récence."}
+
 Mesure le temps écoulé depuis le dernier achat d'un client. <br>
 Les clients qui ont acheté récemment sont plus susceptibles de se souvenir de leur expérience et sont souvent plus enclins à revenir.
 
 ### F: Fréquence
 
+![](frequence.png){fig-align="center" fig-alt="Calcul de la Fréquence."}
+
 Evalue à quelle fréquence un client effectue des achats sur une période donnée. <br>
 Une fréquence d'achat élevée est généralement un indicateur de fidélité et de satisfaction du client.
 
 ### M: Montant 
+
+![](montant.png){fig-align="center" fig-alt="Calcul du Montant."}
 
 Le montant analyse le total des dépenses d'un client. <br>
 Les clients qui dépensent beaucoup sont représentent une source de revenus significative pour l'entreprise.
