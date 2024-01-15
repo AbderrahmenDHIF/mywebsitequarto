@@ -1,8 +1,11 @@
 ---
-title: "En cours ..."
+title: "Blog"
+description: "Blog sur tout ce qui concerne la data science, la connaissance client, et R, SQL, Python."
 listing: 
   contents: posts 
   type: default 
   sort: "date desc" 
   categories: true 
+css: styles_b.css
 ---
+

@@ -1,6 +1,6 @@
 ---
 title: "Segmentation RFM dans le Retail"
-description: "Une approche stratégique et simple pour améliorer la gestion de la clientèle est la segmentation RFM (Récence, Fréquence, Montant)"
+description: "Une approche stratégique et simple pour améliorer la gestion de la clientèle est la segmentation RFM"
 date: 01-13-2024
 categories: [Python, R, Marketing, Connaissance Client] 
 image: RFM.png

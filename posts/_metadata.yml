@@ -1,7 +1,7 @@
 # Options specified here will apply to all posts in this folder
 format:
   html:
-    css: /styles.css
+    css: ./styles.css
 # freeze computational output
 freeze: true
 
