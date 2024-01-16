@@ -25,7 +25,7 @@
     "href": "posts/2024-01-13_RFM/index.html#mise-en-œuvre",
     "title": "Segmentation RFM dans le Retail",
     "section": "Mise en œuvre",
-    "text": "Mise en œuvre\nDans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données ‘Online Retail II’ disponible sur Kaggle.\nInformations sur le Jeu de Données : Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011."
+    "text": "Mise en œuvre\nDans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données ‘Online Retail II’ disponible sur Kaggle.\nInformations sur le Jeu de Données : Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.\n\nRPython\n\n\n\nlibrary(readxl)\ndata &lt;- read_excel(\"data/online_retail_II.xlsx\")\n\n\n\nen construction …"
   },
   {
     "objectID": "posts/2024-01-13_RFM/index.html#conclusion",

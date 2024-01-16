@@ -57,18 +57,15 @@ Ce jeu de données contient toutes les transactions réalisées pour une entrepr
 
 ::: {.panel-tabset}
 # R
-```{r}
+```{r warning=FALSE}
 library(readxl)
 data <- read_excel("data/online_retail_II.xlsx")
 
 ```
 
 # Python
-```{python}
-import pandas as pd
-data = pd.read_excel("data/nline_retail_II.xlsx")
 
-```
+en construction ...
 :::
 
 ## Conclusion
