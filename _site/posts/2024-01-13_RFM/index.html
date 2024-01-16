@@ -305,15 +305,87 @@ cookieconsent.run({
 </section>
 <section id="mise-en-œuvre" class="level2">
 <h2 class="anchored" data-anchor-id="mise-en-œuvre">Mise en œuvre</h2>
-<p>Dans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données ‘Online Retail II’ disponible sur Kaggle.</p>
+<p>Dans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données ‘Online Retail’ disponible sur Kaggle.</p>
 <p><strong>Informations sur le Jeu de Données :</strong> Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/online_retail_II.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/OnlineRetail.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">InvoiceNo</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">StockCode</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Description</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Quantity</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">InvoiceDate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">UnitPrice</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">CustomerID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">536365</td>
+<td style="text-align: left;">85123A</td>
+<td style="text-align: left;">WHITE HANGING HEART T-LIGHT HOLDER</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">01-12-2010 08:26</td>
+<td style="text-align: right;">2.55</td>
+<td style="text-align: right;">17850</td>
+<td style="text-align: left;">United Kingdom</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">536365</td>
+<td style="text-align: left;">71053</td>
+<td style="text-align: left;">WHITE METAL LANTERN</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">01-12-2010 08:26</td>
+<td style="text-align: right;">3.39</td>
+<td style="text-align: right;">17850</td>
+<td style="text-align: left;">United Kingdom</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">536365</td>
+<td style="text-align: left;">84406B</td>
+<td style="text-align: left;">CREAM CUPID HEARTS COAT HANGER</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">01-12-2010 08:26</td>
+<td style="text-align: right;">2.75</td>
+<td style="text-align: right;">17850</td>
+<td style="text-align: left;">United Kingdom</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">536365</td>
+<td style="text-align: left;">84029G</td>
+<td style="text-align: left;">KNITTED UNION FLAG HOT WATER BOTTLE</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">01-12-2010 08:26</td>
+<td style="text-align: right;">3.39</td>
+<td style="text-align: right;">17850</td>
+<td style="text-align: left;">United Kingdom</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">536365</td>
+<td style="text-align: left;">84029E</td>
+<td style="text-align: left;">RED WOOLLY HOTTIE WHITE HEART.</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">01-12-2010 08:26</td>
+<td style="text-align: right;">3.39</td>
+<td style="text-align: right;">17850</td>
+<td style="text-align: left;">United Kingdom</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
