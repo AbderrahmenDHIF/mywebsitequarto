@@ -9,6 +9,8 @@ draft: false
 
 ![](RFM.png)
 
+# en construction ...
+
 ## Contexte
 
 Dans l'univers compétitif du retail, les marques cherchent souvent à identifier les clients ayant plus de valeur afin de mieux répondre à leurs attentes.
@@ -48,7 +50,26 @@ l'adoption de la segmentation RFM dans le retail offre une multitude d'avantages
 
 ## Mise en œuvre
 
-en cours ...
+Dans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données 'Online Retail II' disponible sur Kaggle.
+
+**Informations sur le Jeu de Données :**
+Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.
+
+::: {.panel-tabset}
+# R
+```{r}
+library(readxl)
+data <- read_excel("data/online_retail_II.xlsx")
+
+```
+
+# Python
+```{python}
+import pandas as pd
+data = pd.read_excel("data/nline_retail_II.xlsx")
+
+```
+:::
 
 ## Conclusion
 
