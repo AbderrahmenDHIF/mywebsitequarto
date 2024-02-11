@@ -25,7 +25,7 @@
     "href": "posts/2024-01-13_RFM/index.html#mise-en-œuvre",
     "title": "Segmentation RFM dans le Retail",
     "section": "Mise en œuvre",
-    "text": "Mise en œuvre\nDans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données ‘Online Retail’ disponible sur Kaggle.\nInformations sur le Jeu de Données : Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.\n\nRPython\n\n\n\nlibrary(readr)\ndata &lt;- read_csv(\"data/OnlineRetail.csv\")\n\n\n\n\n\n\nInvoiceNo\nStockCode\nDescription\nQuantity\nInvoiceDate\nUnitPrice\nCustomerID\nCountry\n\n\n\n\n536365\n85123A\nWHITE HANGING HEART T-LIGHT HOLDER\n6\n01-12-2010 08:26\n2.55\n17850\nUnited Kingdom\n\n\n536365\n71053\nWHITE METAL LANTERN\n6\n01-12-2010 08:26\n3.39\n17850\nUnited Kingdom\n\n\n536365\n84406B\nCREAM CUPID HEARTS COAT HANGER\n8\n01-12-2010 08:26\n2.75\n17850\nUnited Kingdom\n\n\n536365\n84029G\nKNITTED UNION FLAG HOT WATER BOTTLE\n6\n01-12-2010 08:26\n3.39\n17850\nUnited Kingdom\n\n\n536365\n84029E\nRED WOOLLY HOTTIE WHITE HEART.\n6\n01-12-2010 08:26\n3.39\n17850\nUnited Kingdom\n\n\n\n\n\n\n\n\n\nen construction …"
+    "text": "Mise en œuvre\nDans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données ‘Online Retail’ disponible sur Kaggle.\nInformations sur le Jeu de Données : Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.\n\nRPython\n\n\n\nChargement des données\n\n\nCode\nlibrary(data.table)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(plotly)\n\ndata &lt;- fread(\"data/OnlineRetail.csv\", drop = c(3,8))%&gt;%\n  mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %&gt;% \n  filter(UnitPrice&gt;0,Quantity&gt;0)\n\n  knitr::kable(head(data,2),format = \"html\")\n\n\n\n\n\nInvoiceNo\nStockCode\nQuantity\nInvoiceDate\nUnitPrice\nCustomerID\n\n\n\n\n536365\n85123A\n6\n2010-12-01\n2.55\n17850\n\n\n536365\n71053\n6\n2010-12-01\n3.39\n17850\n\n\n\n\n\n\n\n\n\nCalcul RFM\n\n\nCode\ndata_rfm = data %&gt;%\n  group_by(CustomerID) %&gt;%\n  summarise(Frequence = n_distinct(InvoiceNo),\n  Montant = sum(UnitPrice),\n  dernier_achat=max(InvoiceDate),\n  premier_achat=min(InvoiceDate))  %&gt;% \n  ungroup() %&gt;% \n  mutate(Recence=as.numeric(max(dernier_achat)-dernier_achat),\n  Anciennete=as.numeric(max(dernier_achat)-premier_achat)) %&gt;% \n  filter(Montant&lt;1000) %&gt;% \n  select(-dernier_achat,-premier_achat)\n\n  knitr::kable(head(data_rfm,2),format = \"html\")\n\n\n\n\n\nCustomerID\nFrequence\nMontant\nRecence\nAnciennete\n\n\n\n\n12346\n1\n1.04\n325\n325\n\n\n12347\n7\n481.21\n2\n367\n\n\n\n\n\n\n\n\n\n\nen construction …"
   },
   {
     "objectID": "posts/2024-01-13_RFM/index.html#conclusion",
@@ -82,5 +82,12 @@
     "title": "Data Scientist/Analyst",
     "section": "",
     "text": "J’aide les entreprises à exploiter pleinement la puissance de leurs données et à créer de la valeur \n\n Clustering     Scoring      Reporting automatique   \n#Machine learning   #Statistique   #Connaissance client   #Retail   #Marketing   #CRM"
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#chargement-des-données",
+    "href": "posts/2024-01-13_RFM/index.html#chargement-des-données",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "Chargement des données",
+    "text": "Chargement des données\n\n\nCode\nlibrary(data.table)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(plotly)\n\ndata &lt;- fread(\"data/OnlineRetail.csv\", drop = c(3,8))%&gt;%\n  mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %&gt;% \n  filter(UnitPrice&gt;0,Quantity&gt;0)\n\n\n\n\n\n\n\nInvoiceNo\nStockCode\nQuantity\nInvoiceDate\nUnitPrice\nCustomerID\n\n\n\n\n536365\n85123A\n6\n2010-12-01\n2.55\n17850\n\n\n536365\n71053\n6\n2010-12-01\n3.39\n17850"
   }
 ]

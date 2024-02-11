@@ -4,6 +4,9 @@ description: "Une approche stratégique et simple pour améliorer la gestion de 
 date: 01-13-2024
 categories: [Python, R, Marketing, Connaissance Client] 
 image: RFM.png
+format:
+    html: 
+        code-fold: true
 draft: false 
 ---
 
@@ -57,15 +60,40 @@ Ce jeu de données contient toutes les transactions réalisées pour une entrepr
 
 ::: {.panel-tabset}
 # R
+### Chargement des données
+
 ```{r warning=FALSE,message=FALSE}
-library(readr)
-data <- read_csv("data/OnlineRetail.csv")
-```
-```{r warning=FALSE,message=FALSE,echo=FALSE}
-knitr::kable(head(data,5),format = "html")
+library(data.table)
+library(tidyverse)
+library(lubridate)
+library(plotly)
+
+data <- fread("data/OnlineRetail.csv", drop = c(3,8))%>%
+  mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %>% 
+  filter(UnitPrice>0,Quantity>0)
+
+  knitr::kable(head(data,2),format = "html")
 ```
 
-# Python
+### Calcul RFM
+
+```{r warning=FALSE,message=FALSE}
+data_rfm = data %>%
+  group_by(CustomerID) %>%
+  summarise(Frequence = n_distinct(InvoiceNo),
+  Montant = sum(UnitPrice),
+  dernier_achat=max(InvoiceDate),
+  premier_achat=min(InvoiceDate))  %>% 
+  ungroup() %>% 
+  mutate(Recence=as.numeric(max(dernier_achat)-dernier_achat),
+  Anciennete=as.numeric(max(dernier_achat)-premier_achat)) %>% 
+  filter(Montant<1000) %>% 
+  select(-dernier_achat,-premier_achat)
+
+  knitr::kable(head(data_rfm,2),format = "html")
+```
+
+# Python 
 
 en construction ...
 :::

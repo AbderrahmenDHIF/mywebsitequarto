@@ -311,75 +311,50 @@ cookieconsent.run({
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<section id="chargement-des-données" class="level3">
+<h3 class="anchored" data-anchor-id="chargement-des-données">Chargement des données</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/OnlineRetail.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/OnlineRetail.csv"</span>, <span class="at">drop =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">8</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">InvoiceDate =</span> <span class="fu">dmy</span>(<span class="fu">str_sub</span>(InvoiceDate, <span class="dv">1</span>, <span class="dv">10</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(UnitPrice<span class="sc">&gt;</span><span class="dv">0</span>,Quantity<span class="sc">&gt;</span><span class="dv">0</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(data,<span class="dv">2</span>),<span class="at">format =</span> <span class="st">"html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table data-quarto-postprocess="true" class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">InvoiceNo</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">StockCode</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Description</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Quantity</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">InvoiceDate</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">UnitPrice</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">CustomerID</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Country</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">536365</td>
 <td style="text-align: left;">85123A</td>
-<td style="text-align: left;">WHITE HANGING HEART T-LIGHT HOLDER</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: left;">01-12-2010 08:26</td>
+<td style="text-align: left;">2010-12-01</td>
 <td style="text-align: right;">2.55</td>
 <td style="text-align: right;">17850</td>
-<td style="text-align: left;">United Kingdom</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">536365</td>
 <td style="text-align: left;">71053</td>
-<td style="text-align: left;">WHITE METAL LANTERN</td>
 <td style="text-align: right;">6</td>
-<td style="text-align: left;">01-12-2010 08:26</td>
+<td style="text-align: left;">2010-12-01</td>
 <td style="text-align: right;">3.39</td>
 <td style="text-align: right;">17850</td>
-<td style="text-align: left;">United Kingdom</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">536365</td>
-<td style="text-align: left;">84406B</td>
-<td style="text-align: left;">CREAM CUPID HEARTS COAT HANGER</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">01-12-2010 08:26</td>
-<td style="text-align: right;">2.75</td>
-<td style="text-align: right;">17850</td>
-<td style="text-align: left;">United Kingdom</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">536365</td>
-<td style="text-align: left;">84029G</td>
-<td style="text-align: left;">KNITTED UNION FLAG HOT WATER BOTTLE</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">01-12-2010 08:26</td>
-<td style="text-align: right;">3.39</td>
-<td style="text-align: right;">17850</td>
-<td style="text-align: left;">United Kingdom</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">536365</td>
-<td style="text-align: left;">84029E</td>
-<td style="text-align: left;">RED WOOLLY HOTTIE WHITE HEART.</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">01-12-2010 08:26</td>
-<td style="text-align: right;">3.39</td>
-<td style="text-align: right;">17850</td>
-<td style="text-align: left;">United Kingdom</td>
 </tr>
 </tbody>
 </table>
@@ -387,6 +362,59 @@ cookieconsent.run({
 
 </div>
 </div>
+</section>
+<section id="calcul-rfm" class="level3">
+<h3 class="anchored" data-anchor-id="calcul-rfm">Calcul RFM</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_rfm <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CustomerID) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Frequence =</span> <span class="fu">n_distinct</span>(InvoiceNo),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Montant =</span> <span class="fu">sum</span>(UnitPrice),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">dernier_achat=</span><span class="fu">max</span>(InvoiceDate),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">premier_achat=</span><span class="fu">min</span>(InvoiceDate))  <span class="sc">%&gt;%</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Recence=</span><span class="fu">as.numeric</span>(<span class="fu">max</span>(dernier_achat)<span class="sc">-</span>dernier_achat),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Anciennete=</span><span class="fu">as.numeric</span>(<span class="fu">max</span>(dernier_achat)<span class="sc">-</span>premier_achat)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Montant<span class="sc">&lt;</span><span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>dernier_achat,<span class="sc">-</span>premier_achat)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(data_rfm,<span class="dv">2</span>),<span class="at">format =</span> <span class="st">"html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">CustomerID</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Frequence</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Montant</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Recence</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Anciennete</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">12346</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.04</td>
+<td style="text-align: right;">325</td>
+<td style="text-align: right;">325</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12347</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">481.21</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">367</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>en construction …</p>
