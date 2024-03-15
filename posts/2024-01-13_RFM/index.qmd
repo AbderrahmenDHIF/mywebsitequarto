@@ -59,6 +59,12 @@ Dans cette partie, nous allons explorer comment implémenter la segmentation RFM
 Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.
 
 ::: {.panel-tabset}
+
+# Python 
+
+en construction ...
+
+
 # R
 ### Chargement des données
 
@@ -93,9 +99,83 @@ data_rfm = data %>%
   knitr::kable(head(data_rfm,2),format = "html")
 ```
 
-# Python 
 
-en construction ...
+## Nouveaux clients
+
+Les clients dont l'ancienneté est inférieure à 3 mois, cette durée peut varier selon le secteur d'activité et la nature des données. Par exemple, dans le retail (mode et habillement) la période considérée peut souvent s'étendre jusqu'à 6 mois.
+
+```{r warning=FALSE,message=FALSE}
+data_nouveaux=data_rfm %>% filter(Anciennete<30.5*3)
+```
+
+
+
+## Clients fidèles
+
+```{r warning=FALSE,message=FALSE}
+data_fideles=data_rfm %>% anti_join(data_nouveaux,by='CustomerID') 
+```
+
+### Kmeans pour définir les seuils
+```{r warning=FALSE,message=FALSE}
+data_fideles_standardisees <- scale(data_fideles %>% select(Frequence,Montant,Recence)) 
+
+set.seed(123)
+km=kmeans(data_fideles_standardisees, 5)
+
+data_fideles_km=data_fideles %>% mutate(segment=factor(km$cluster))
+
+knitr::kable(data_fideles_km%>% count(segment)%>% mutate(poids=round(100*n/sum(n),1))%>% arrange(segment),format = "html")
+
+```
+
+### Projection sur R-F-M
+
+::: {.panel-tabset}
+
+#### RFM
+
+```{r warning=FALSE,message=FALSE}
+fig <- plot_ly(data=data_fideles_km %>% filter(Frequence<40),x = ~Montant, y = ~Frequence, z = ~Recence,color = ~segment,
+text=~paste0("R:",Recence,'<br>',
+"F:",Frequence,'<br>',
+"M:",round(Montant),'<br>') , type = 'scatter3d', mode = 'markers',hoverinfo = 'text')
+fig
+```
+
+#### RF
+
+```{r warning=FALSE,message=FALSE}
+
+ggplot(data_fideles_km %>% filter(Frequence<20))+
+geom_point(aes(x=Frequence,y=Recence,color=segment))+
+geom_hline(yintercept=30.5*6)+
+geom_vline(xintercept=6.2)+
+geom_vline(xintercept=3.2)+
+theme_bw()
+```
+
+
+#### FM
+
+```{r warning=FALSE,message=FALSE}
+
+ggplot(data_fideles_km %>% filter(Frequence<40))+
+geom_point(aes(x=Frequence,y=Montant,color=segment))+
+geom_hline(yintercept=650)+
+geom_hline(yintercept=200)+
+theme_bw()
+```
+
+:::
+## VIP
+
+Cette catégorie est réservée aux clients les plus précieux pour l'entreprise, déterminés principalement par leur contribution financière. 
+
+L'objectif de définir un groupe restreint est de permettre la mise en place de stratégies de ciblage spécifique et personnalisé, visant à offrir une expérience exceptionnelle et satisfaisante à ces clients privilégiés.
+
+## Endormis
+
 :::
 
 ## Conclusion

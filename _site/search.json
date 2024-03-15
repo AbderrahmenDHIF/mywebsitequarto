@@ -25,7 +25,7 @@
     "href": "posts/2024-01-13_RFM/index.html#mise-en-œuvre",
     "title": "Segmentation RFM dans le Retail",
     "section": "Mise en œuvre",
-    "text": "Mise en œuvre\nDans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données ‘Online Retail’ disponible sur Kaggle.\nInformations sur le Jeu de Données : Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.\n\nRPython\n\n\n\nChargement des données\n\n\nCode\nlibrary(data.table)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(plotly)\n\ndata &lt;- fread(\"data/OnlineRetail.csv\", drop = c(3,8))%&gt;%\n  mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %&gt;% \n  filter(UnitPrice&gt;0,Quantity&gt;0)\n\n  knitr::kable(head(data,2),format = \"html\")\n\n\n\n\n\nInvoiceNo\nStockCode\nQuantity\nInvoiceDate\nUnitPrice\nCustomerID\n\n\n\n\n536365\n85123A\n6\n2010-12-01\n2.55\n17850\n\n\n536365\n71053\n6\n2010-12-01\n3.39\n17850\n\n\n\n\n\n\n\n\n\nCalcul RFM\n\n\nCode\ndata_rfm = data %&gt;%\n  group_by(CustomerID) %&gt;%\n  summarise(Frequence = n_distinct(InvoiceNo),\n  Montant = sum(UnitPrice),\n  dernier_achat=max(InvoiceDate),\n  premier_achat=min(InvoiceDate))  %&gt;% \n  ungroup() %&gt;% \n  mutate(Recence=as.numeric(max(dernier_achat)-dernier_achat),\n  Anciennete=as.numeric(max(dernier_achat)-premier_achat)) %&gt;% \n  filter(Montant&lt;1000) %&gt;% \n  select(-dernier_achat,-premier_achat)\n\n  knitr::kable(head(data_rfm,2),format = \"html\")\n\n\n\n\n\nCustomerID\nFrequence\nMontant\nRecence\nAnciennete\n\n\n\n\n12346\n1\n1.04\n325\n325\n\n\n12347\n7\n481.21\n2\n367\n\n\n\n\n\n\n\n\n\n\nen construction …"
+    "text": "Mise en œuvre\nDans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données ‘Online Retail’ disponible sur Kaggle.\nInformations sur le Jeu de Données : Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.\n\nPythonR\n\n\nen construction …\n\n\n\nChargement des données\n\n\nCode\nlibrary(data.table)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(plotly)\n\ndata &lt;- fread(\"data/OnlineRetail.csv\", drop = c(3,8))%&gt;%\n  mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %&gt;% \n  filter(UnitPrice&gt;0,Quantity&gt;0)\n\n  knitr::kable(head(data,2),format = \"html\")\n\n\n\n\n\nInvoiceNo\nStockCode\nQuantity\nInvoiceDate\nUnitPrice\nCustomerID\n\n\n\n\n536365\n85123A\n6\n2010-12-01\n2.55\n17850\n\n\n536365\n71053\n6\n2010-12-01\n3.39\n17850\n\n\n\n\n\n\n\n\n\nCalcul RFM\n\n\nCode\ndata_rfm = data %&gt;%\n  group_by(CustomerID) %&gt;%\n  summarise(Frequence = n_distinct(InvoiceNo),\n  Montant = sum(UnitPrice),\n  dernier_achat=max(InvoiceDate),\n  premier_achat=min(InvoiceDate))  %&gt;% \n  ungroup() %&gt;% \n  mutate(Recence=as.numeric(max(dernier_achat)-dernier_achat),\n  Anciennete=as.numeric(max(dernier_achat)-premier_achat)) %&gt;% \n  filter(Montant&lt;1000) %&gt;% \n  select(-dernier_achat,-premier_achat)\n\n  knitr::kable(head(data_rfm,2),format = \"html\")\n\n\n\n\n\nCustomerID\nFrequence\nMontant\nRecence\nAnciennete\n\n\n\n\n12346\n1\n1.04\n325\n325\n\n\n12347\n7\n481.21\n2\n367\n\n\n\n\n\n\n\n\n\nNouveaux clients\nLes clients dont l’ancienneté est inférieure à 3 mois, cette durée peut varier selon le secteur d’activité et la nature des données. Par exemple, dans le retail (mode et habillement) la période considérée peut souvent s’étendre jusqu’à 6 mois.\n\n\nCode\ndata_nouveaux=data_rfm %&gt;% filter(Anciennete&lt;30.5*3)\n\n\n\n\nClients fidèles\n\n\nCode\ndata_fideles=data_rfm %&gt;% anti_join(data_nouveaux,by='CustomerID') \n\n\n\nKmeans pour définir les seuils\n\n\nCode\ndata_fideles_standardisees &lt;- scale(data_fideles %&gt;% select(Frequence,Montant,Recence)) \n\nset.seed(123)\nkm=kmeans(data_fideles_standardisees, 5)\n\ndata_fideles_km=data_fideles %&gt;% mutate(segment=factor(km$cluster))\n\nknitr::kable(data_fideles_km%&gt;% count(segment)%&gt;% mutate(poids=round(100*n/sum(n),1))%&gt;% arrange(segment),format = \"html\")\n\n\n\n\n\nsegment\nn\npoids\n\n\n\n\n1\n46\n1.4\n\n\n2\n1128\n35.5\n\n\n3\n334\n10.5\n\n\n4\n738\n23.2\n\n\n5\n929\n29.3\n\n\n\n\n\n\n\n\n\nProjection sur R-F-M\n\nRFMRFFM\n\n\n\n\nCode\nfig &lt;- plot_ly(data=data_fideles_km %&gt;% filter(Frequence&lt;40),x = ~Montant, y = ~Frequence, z = ~Recence,color = ~segment,\ntext=~paste0(\"R:\",Recence,'&lt;br&gt;',\n\"F:\",Frequence,'&lt;br&gt;',\n\"M:\",round(Montant),'&lt;br&gt;') , type = 'scatter3d', mode = 'markers',hoverinfo = 'text')\nfig\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(data_fideles_km %&gt;% filter(Frequence&lt;20))+\ngeom_point(aes(x=Frequence,y=Recence,color=segment))+\ngeom_hline(yintercept=30.5*6)+\ngeom_vline(xintercept=6.2)+\ngeom_vline(xintercept=3.2)+\ntheme_bw()\n\n\n\n\n\n\n\n\n\nCode\nggplot(data_fideles_km %&gt;% filter(Frequence&lt;40))+\ngeom_point(aes(x=Frequence,y=Montant,color=segment))+\ngeom_hline(yintercept=650)+\ngeom_hline(yintercept=200)+\ntheme_bw()\n\n\n\n\n\n\n\n\n\n\n\nVIP\nCette catégorie est réservée aux clients les plus précieux pour l’entreprise, déterminés principalement par leur contribution financière.\nL’objectif de définir un groupe restreint est de permettre la mise en place de stratégies de ciblage spécifique et personnalisé, visant à offrir une expérience exceptionnelle et satisfaisante à ces clients privilégiés.\n\n\nEndormis"
   },
   {
     "objectID": "posts/2024-01-13_RFM/index.html#conclusion",
@@ -53,14 +53,14 @@
     "href": "cv.html#expériences-professionnelles",
     "title": "Data Scientist/Analyst",
     "section": "Expériences professionnelles",
-    "text": "Expériences professionnelles\n\nSenior Data Scientist/Analyst\nCaroll & Morgan 10/2022 – Aujourd’hui    Marketing clients\n\nCréation de reporting interactifs en RMarkdown et RShiny\nSegmentation comportementale des clients\nSegmentation comportementale des boutiques\nDéveloppement de la connaissance client à l’échelle local\nReporting automatique et analyse des données clients\n\n\n\nData Scientist/Analyst\nCaroll 06/2019 – 10/2022   Marketing clients"
+    "text": "Expériences professionnelles\n\nSenior Data Scientist/Analyst\nCaroll & Morgan 10/2022 – Aujourd’hui    Marketing clients\n Création de reporting interactifs en RMarkdown et RShiny   Segmentation comportementale des clients   Segmentation comportementale des boutiques   Développement de la connaissance client à l’échelle local   Reporting automatique et analyse des données clients \n\n\nData Scientist/Analyst\nCaroll 06/2019 – 10/2022   Marketing clients"
   },
   {
     "objectID": "cv.html#envirennement-technique",
     "href": "cv.html#envirennement-technique",
     "title": "Data Scientist/Analyst",
     "section": "Envirennement technique",
-    "text": "Envirennement technique\nR, SQL, Python, Datatiku, SAS, Snowflake  TIDYVERSE, SHINY, RMARKDOWN, PANDAS,NUMPY …\n\nClustering, Scoring\nData management, Statistiques descriptives, Machine learning, Reportings interactifs"
+    "text": "Envirennement technique\nR, SQL, Python, Datatiku, SAS, Snowflake  TIDYVERSE, SHINY, RMARKDOWN, PANDAS,NUMPY …\n Clustering, Scoring   Data management, Statistiques descriptives, Machine learning, Reportings interactifs"
   },
   {
     "objectID": "cv.html#centres-dintérêt",
@@ -89,5 +89,33 @@
     "title": "Segmentation RFM dans le Retail",
     "section": "Chargement des données",
     "text": "Chargement des données\n\n\nCode\nlibrary(data.table)\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(plotly)\n\ndata &lt;- fread(\"data/OnlineRetail.csv\", drop = c(3,8))%&gt;%\n  mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %&gt;% \n  filter(UnitPrice&gt;0,Quantity&gt;0)\n\n\n\n\n\n\n\nInvoiceNo\nStockCode\nQuantity\nInvoiceDate\nUnitPrice\nCustomerID\n\n\n\n\n536365\n85123A\n6\n2010-12-01\n2.55\n17850\n\n\n536365\n71053\n6\n2010-12-01\n3.39\n17850"
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#nouveaux-clients",
+    "href": "posts/2024-01-13_RFM/index.html#nouveaux-clients",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "Nouveaux clients",
+    "text": "Nouveaux clients\nLes clients dont l’ancienneté est inférieure à 3 mois, cette durée peut varier selon le secteur d’activité et la nature des données. Par exemple, dans le retail (mode et habillement) la période considérée peut souvent s’étendre jusqu’à 6 mois.\n\n\nCode\ndata_nouveaux=data_rfm %&gt;% filter(Anciennete&lt;30.5*3)"
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#clients-fidèles",
+    "href": "posts/2024-01-13_RFM/index.html#clients-fidèles",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "Clients fidèles",
+    "text": "Clients fidèles\n\n\nCode\ndata_fideles=data_rfm %&gt;% anti_join(data_nouveaux,by='CustomerID') \n\n\n\nKmeans pour définir les seuils\n\n\nCode\ndata_fideles_standardisees &lt;- scale(data_fideles %&gt;% select(Frequence,Montant,Recence)) \n\nset.seed(123)\nkm=kmeans(data_fideles_standardisees, 5)\n\ndata_fideles_km=data_fideles %&gt;% mutate(segment=factor(km$cluster))\n\nknitr::kable(data_fideles_km%&gt;% count(segment)%&gt;% mutate(poids=round(100*n/sum(n),1))%&gt;% arrange(segment),format = \"html\")\n\n\n\n\n\nsegment\nn\npoids\n\n\n\n\n1\n46\n1.4\n\n\n2\n1128\n35.5\n\n\n3\n334\n10.5\n\n\n4\n738\n23.2\n\n\n5\n929\n29.3\n\n\n\n\n\n\n\n\n\nProjection sur R-F-M\n\nRFMRFFM\n\n\n\n\nCode\nfig &lt;- plot_ly(data=data_fideles_km %&gt;% filter(Frequence&lt;40),x = ~Montant, y = ~Frequence, z = ~Recence,color = ~segment,\ntext=~paste0(\"R:\",Recence,'&lt;br&gt;',\n\"F:\",Frequence,'&lt;br&gt;',\n\"M:\",round(Montant),'&lt;br&gt;') , type = 'scatter3d', mode = 'markers',hoverinfo = 'text')\nfig\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(data_fideles_km %&gt;% filter(Frequence&lt;20))+\ngeom_point(aes(x=Frequence,y=Recence,color=segment))+\ngeom_hline(yintercept=30.5*6)+\ngeom_vline(xintercept=6.2)+\ngeom_vline(xintercept=3.2)+\ntheme_bw()\n\n\n\n\n\n\n\n\n\nCode\nggplot(data_fideles_km %&gt;% filter(Frequence&lt;40))+\ngeom_point(aes(x=Frequence,y=Montant,color=segment))+\ngeom_hline(yintercept=650)+\ngeom_hline(yintercept=200)+\ntheme_bw()"
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#vip",
+    "href": "posts/2024-01-13_RFM/index.html#vip",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "VIP",
+    "text": "VIP\nCette catégorie est réservée aux clients les plus précieux pour l’entreprise, déterminés principalement par leur contribution financière.\nL’objectif de définir un groupe restreint est de permettre la mise en place de stratégies de ciblage spécifique et personnalisé, visant à offrir une expérience exceptionnelle et satisfaisante à ces clients privilégiés."
+  },
+  {
+    "objectID": "posts/2024-01-13_RFM/index.html#endormis",
+    "href": "posts/2024-01-13_RFM/index.html#endormis",
+    "title": "Segmentation RFM dans le Retail",
+    "section": "Endormis",
+    "text": "Endormis"
   }
 ]

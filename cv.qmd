@@ -35,11 +35,11 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 ***Caroll & Morgan*** [10/2022 -- Aujourd'hui]{.cvdate} <br> ![](img/crl-dark.png){width=30px height=60px style="float:right; margin-right:20px; margin-top:40px"} ![](img/mgn-dark.png){width=80px height=30px style="float:right; margin-right:20px; margin-top:60px"} 
 ***Marketing clients***
 
-* Création de reporting interactifs en RMarkdown et {{< animate fadeInUp RShiny >}}
-* Segmentation comportementale des clients
-* Segmentation comportementale des boutiques
-* Développement de la connaissance client à l’échelle local
-* Reporting automatique et analyse des données clients
+{{< fa solid check size=Small >}} Création de reporting interactifs en RMarkdown et {{< animate fadeInUp RShiny >}} <br>
+{{< fa solid check size=Small >}} Segmentation comportementale des clients <br>
+{{< fa solid check size=Small >}} Segmentation comportementale des boutiques <br>
+{{< fa solid check size=Small >}} Développement de la connaissance client à l’échelle local <br>
+{{< fa solid check size=Small >}} Reporting automatique et analyse des données clients <br>
 
 ### Data Scientist/Analyst
 
@@ -50,63 +50,63 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 
 ::: {.animate__animated .animate__fadeInUp}
 
-* Analyse des données clients
-* Reporting automatique et analyse des données clients
-* Scoring appétence produits
-* Segmentation comportementale des clients
-* Analyse de mixité produits
+{{< fa solid check size=Small >}} Analyse des données clients <br>
+{{< fa solid check size=Small >}} Reporting automatique et analyse des données clients <br>
+{{< fa solid check size=Small >}} Scoring appétence produits <br>
+{{< fa solid check size=Small >}} Segmentation comportementale des clients <br>
+{{< fa solid check size=Small >}} Analyse de mixité produits <br>
 
 ### Consultant Data Scientist/Analyst {style="page-break-before: always"}
 
 ***AI&DATA*** [07/2017 -- 06/2019]{.cvdate} <br> ![](img/aid.png){width=50px height=50px style="float:right; margin-right:30px; margin-top:20px"} 
 ***Marketing clients***
 
-* Consultant Data Scientist
+{{< fa solid check size=Small >}} Consultant Data Scientist
 
 ***Air France*** [12/2018 -- 06/2019]{.cvdate} <br> ![](img/airfrance-dark.png){width=120px height=35px style="float:right; margin-right:10px; margin-top:20px"} 
 ***Customer & Market insight***
 
-* Optimisation de la segmentation clients
-* Analyse textmining des commentaires
+{{< fa solid check size=Small >}} Optimisation de la segmentation clients <br>
+{{< fa solid check size=Small >}} Analyse textmining des commentaires <br>
 
 ***Fnac‑Darty*** [11/2017 -- 10/2018]{.cvdate} <br> ![](img/fnac.png){width=50px height=50px style="float:right; margin-right:15px; margin-top:20px"} ![](img/Darty-dark.png){width=50px height=50px style="float:right; margin-right:15px; margin-top:20px"}
 ***Connaissance clients***
 
-* Manipulation de données et requétage sur un cluster hadoop
-* Création d’agrégats et calcul de KPIs
-* Création de reporting interactifs en R Markdown et R Shiny
-* Analyse de comportement des clients web
-* Ciblage et bilan de campagne marketing
-* Analyse de ré‑achat
+{{< fa solid check size=Small >}} Manipulation de données et requétage sur un cluster hadoop <br>
+{{< fa solid check size=Small >}} Création d’agrégats et calcul de KPIs <br>
+{{< fa solid check size=Small >}} Création de reporting interactifs en R Markdown et R Shiny <br>
+{{< fa solid check size=Small >}} Analyse de comportement des clients web <br>
+{{< fa solid check size=Small >}} Ciblage et bilan de campagne marketing <br>
+{{< fa solid check size=Small >}} Analyse de ré‑achat <br>
 
 ***Systeme U*** [08/2017 -- 11/2017]{.cvdate} <br> ![](img/Systeme_U_2009_logo.png){width=130px height=40px style="float:right; margin-right:1px; margin-top:20px"} 
 ***Connaissance clients***
 
-* Classification des produits selon la mixité
-* Calcul des indices de mixité entre les produits
-* Etablissement des règles d’associations
-* Classification des produits
+{{< fa solid check size=Small >}} Classification des produits selon la mixité <br>
+{{< fa solid check size=Small >}} Calcul des indices de mixité entre les produits <br>
+{{< fa solid check size=Small >}} Etablissement des règles d’associations <br>
+{{< fa solid check size=Small >}} Classification des produits <br>
 
 ### Data Scientist/Analyst
 ***Vivarte groupe*** [04/2016 -- 07/2017]{.cvdate} <br> ![](img/vivarte-dark.png){width=100px height=25px style="float:right; margin-right:10px; margin-top:20px"} 
 ***Connaissance clients***
 
-* Analyse de l’impact des opérations commerciales
-* Mise en place de reportings commerciaux
-* Audit de base de données
-* Segmentation RFM
-* Etude géomarketing sur les clients web (géolocalisation des clients et des magasins)
-* Modélisation de score de ré‑achat des clients pour une campagne mailing
-* Analyse du ré‑achat selon les leviers d’acquisition de trafic (SEO, SEA, display …)
+{{< fa solid check size=Small >}} Analyse de l’impact des opérations commerciales <br>
+{{< fa solid check size=Small >}} Mise en place de reportings commerciaux <br>
+{{< fa solid check size=Small >}} Audit de base de données <br>
+{{< fa solid check size=Small >}} Segmentation RFM <br>
+{{< fa solid check size=Small >}} Etude géomarketing sur les clients web (géolocalisation des clients et des magasins) <br>
+{{< fa solid check size=Small >}} Modélisation de score de ré‑achat des clients pour une campagne mailing <br>
+{{< fa solid check size=Small >}} Analyse du ré‑achat selon les leviers d’acquisition de trafic (SEO, SEA, display …) <br>
 
 ### Data Scientist/Analyst {style="page-break-before: always"} 
 ***Ooredoo*** [03/2015 -- 07/2015]{.cvdate} <br> ![](img/Ooredoo.png){width=100px height=20px style="float:right; margin-right:10px; margin-top:20px"} 
 ***Connaissance clients***
 
-* Modélisation de la valeur client (CLV)
-* Modélisation de la probabilité de churn et du chiffre d’affaires moyen par abonné
-* Analyse du comportement des abonnés (CA, fréquence d’achat …)
-* Mise en place d’une application à l’aide de R Shiny
+{{< fa solid check size=Small >}} Modélisation de la valeur client (CLV) <br>
+{{< fa solid check size=Small >}} Modélisation de la probabilité de churn et du chiffre d’affaires moyen par abonné <br>
+{{< fa solid check size=Small >}} Analyse du comportement des abonnés (CA, fréquence d’achat …) <br>
+{{< fa solid check size=Small >}} Mise en place d’une application à l’aide de R Shiny <br>
 
 :::
 
@@ -117,8 +117,8 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 **R, SQL, Python, Datatiku, SAS, Snowflake** <br>
 ***TIDYVERSE, SHINY, RMARKDOWN, PANDAS,NUMPY ...***
 
-* Clustering, Scoring
-* Data management, Statistiques descriptives, Machine learning, Reportings interactifs
+{{< fa solid check size=Small >}} Clustering, Scoring <br>
+{{< fa solid check size=Small >}} Data management, Statistiques descriptives, Machine learning, Reportings interactifs <br>
 
 :::
 
