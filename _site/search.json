@@ -42,18 +42,11 @@
     "text": "Clients fidèles\n\n\nCode\ndata_fideles=data_rfm %&gt;% anti_join(data_nouveaux,by='CustomerID') \n\n\n\nKmeans pour définir les seuils\n\n\nCode\ndata_fideles_standardisees &lt;- scale(data_fideles %&gt;% select(Frequence,Montant,Recence)) \n\nset.seed(123)\nkm=kmeans(data_fideles_standardisees, 5)\n\ndata_fideles_km=data_fideles %&gt;% mutate(segment=factor(km$cluster))\n\nknitr::kable(data_fideles_km%&gt;% count(segment)%&gt;% mutate(poids=round(100*n/sum(n),1))%&gt;% arrange(segment),format = \"html\")\n\n\n\n\n\nsegment\nn\npoids\n\n\n\n\n1\n46\n1.4\n\n\n2\n1128\n35.5\n\n\n3\n334\n10.5\n\n\n4\n738\n23.2\n\n\n5\n929\n29.3\n\n\n\n\n\n\n\n\n\nProjection sur R-F-M\n\nRFMRFFM\n\n\n\n\nCode\nfig &lt;- plot_ly(data=data_fideles_km %&gt;% filter(Frequence&lt;40),x = ~Montant, y = ~Frequence, z = ~Recence,color = ~segment,\ntext=~paste0(\"R:\",Recence,'&lt;br&gt;',\n\"F:\",Frequence,'&lt;br&gt;',\n\"M:\",round(Montant),'&lt;br&gt;') , type = 'scatter3d', mode = 'markers',hoverinfo = 'text')\nfig\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(data_fideles_km %&gt;% filter(Frequence&lt;20))+\ngeom_point(aes(x=Frequence,y=Recence,color=segment))+\ngeom_hline(yintercept=30.5*6)+\ngeom_vline(xintercept=6.2)+\ngeom_vline(xintercept=3.2)+\ntheme_bw()\n\n\n\n\n\n\n\n\n\nCode\nggplot(data_fideles_km %&gt;% filter(Frequence&lt;40))+\ngeom_point(aes(x=Frequence,y=Montant,color=segment))+\ngeom_hline(yintercept=650)+\ngeom_hline(yintercept=200)+\ntheme_bw()"
   },
   {
-    "objectID": "posts/2024-01-13_RFM/index.html#vip",
-    "href": "posts/2024-01-13_RFM/index.html#vip",
+    "objectID": "posts/2024-01-13_RFM/index.html#recommandation-marketingcrm",
+    "href": "posts/2024-01-13_RFM/index.html#recommandation-marketingcrm",
     "title": "Segmentation RFM dans le Retail",
-    "section": "VIP",
-    "text": "VIP\nCette catégorie est réservée aux clients les plus précieux pour l’entreprise, déterminés principalement par leur contribution financière.\nL’objectif de définir un groupe restreint est de permettre la mise en place de stratégies de ciblage spécifique et personnalisé, visant à offrir une expérience exceptionnelle et satisfaisante à ces clients privilégiés."
-  },
-  {
-    "objectID": "posts/2024-01-13_RFM/index.html#endormis",
-    "href": "posts/2024-01-13_RFM/index.html#endormis",
-    "title": "Segmentation RFM dans le Retail",
-    "section": "Endormis",
-    "text": "Endormis\n…"
+    "section": "Recommandation Marketing/CRM",
+    "text": "Recommandation Marketing/CRM"
   },
   {
     "objectID": "posts/2024-01-13_RFM/index.html#conclusion",

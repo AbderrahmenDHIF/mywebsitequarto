@@ -174,15 +174,11 @@ en construction ...
 
 :::
 
-## VIP
+## Recommandation Marketing/CRM
 
-Cette catégorie est réservée aux clients les plus précieux pour l'entreprise, déterminés principalement par leur contribution financière. 
+![](recoM-dark.png){fig-align="center" fig-alt="Recommandation Marketing/CRM"}
 
-L'objectif de définir un groupe restreint est de permettre la mise en place de stratégies de ciblage spécifique et personnalisé, visant à offrir une expérience exceptionnelle et satisfaisante à ces clients privilégiés.
 
-## Endormis
-
-...
 
 ## Conclusion
 
