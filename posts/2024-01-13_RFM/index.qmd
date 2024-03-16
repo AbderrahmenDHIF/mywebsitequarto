@@ -168,6 +168,10 @@ theme_bw()
 ```
 
 :::
+
+
+:::
+
 ## VIP
 
 Cette catégorie est réservée aux clients les plus précieux pour l'entreprise, déterminés principalement par leur contribution financière. 
@@ -176,7 +180,7 @@ L'objectif de définir un groupe restreint est de permettre la mise en place de 
 
 ## Endormis
 
-:::
+...
 
 ## Conclusion
 
