@@ -60,10 +60,6 @@ Ce jeu de données contient toutes les transactions réalisées pour une entrepr
 
 ::: {.panel-tabset}
 
-# Python 
-
-en construction ...
-
 
 # R
 ### Chargement des données
@@ -166,6 +162,11 @@ geom_hline(yintercept=650)+
 geom_hline(yintercept=200)+
 theme_bw()
 ```
+
+
+# Python 
+
+en construction ...
 
 :::
 
