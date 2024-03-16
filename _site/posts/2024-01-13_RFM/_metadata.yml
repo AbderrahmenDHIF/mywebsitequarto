@@ -4,7 +4,7 @@ format:
     css: /styles.css
 
 resources: 
-  - posts/*
+  - /posts/*
 # freeze computational output
 freeze: true
 

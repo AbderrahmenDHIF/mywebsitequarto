@@ -40,8 +40,8 @@ format:
    html:
     highlight-style: a11y
     theme: 
-      light: [cosmo,ligh.scss,img/DSS2-light.png,img/crl-light.png,img/mgn-light.png,img/airfance-light.png,img/Darty-light.png,img/vivarte-light.png,recoM-light.png]
-      dark: [cosmo,dark.scss,img/DSS2-dark.png,img/crl-dark.png,img/mgn-dark.png,img/airfance-dark.png,img/Darty-dark.png,img/vivarte-dark.png,recoM-dark.png]
+      light: [cosmo,ligh.scss,img/DSS2-light.png,img/crl-light.png,img/mgn-light.png,img/airfance-light.png,img/Darty-light.png,img/vivarte-light.png,posts/2024-01-13_RFM/reco-light.png]
+      dark: [cosmo,dark.scss,img/DSS2-dark.png,img/crl-dark.png,img/mgn-dark.png,img/airfance-dark.png,img/Darty-dark.png,img/vivarte-dark.png,posts/2024-01-13_RFM/reco-dark.png]
     css: style_g.css
 
 execute:
@@ -52,4 +52,6 @@ include-after-body:
     <script type="application/javascript" src="/script.js"></script>
 resources: 
   - img/*
+  - posts/2024-01-13_RFM/*
+
 
