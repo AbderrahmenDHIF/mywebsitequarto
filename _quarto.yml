@@ -44,7 +44,7 @@ format:
       dark: [cosmo,dark.scss,img/DSS2-dark.png,img/crl-dark.png,img/mgn-dark.png,img/airfance-dark.png,img/Darty-dark.png,img/vivarte-dark.png,posts/2024-01-13_RFM/reco-dark.png]
     css: style_g.css
 
-execute:
+execute: 
   freeze: auto   
 
 include-after-body:
