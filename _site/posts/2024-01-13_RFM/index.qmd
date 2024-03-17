@@ -143,7 +143,7 @@ en construction ...
 
 ### Projection sur R-F-M
 
-La représentation des clusters Kmeans selon les dimensions RFM nous aide à définir les seuils nécessaires à l'élaboration des segments finaux. Il est important de noter que la détermination de ces seuils s'appuie non seulement sur les résultats du Kmeans mais également sur des critères métiers spécifiques au domaine d'activité, assurant ainsi la pertinence des segments obtenus.
+La représentation des clusters Kmeans selon les dimensions RFM aide à définir les seuils nécessaires à l'élaboration des segments finaux. Il est important de noter que la détermination de ces seuils s'appuie non seulement sur les résultats du Kmeans mais également sur des critères métiers spécifiques au domaine d'activité, assurant ainsi la pertinence des segments obtenus.
 
 ::: {.panel-tabset}
 
@@ -290,7 +290,7 @@ en construction ...
 
 ## Recommandation Marketing/CRM
 
-La segmentation RFM nous permet de cibler plus efficacement les clients, en adaptant des actions marketing spécifiques à leurs comportements d'achat.
+La segmentation RFM permet de cibler plus efficacement les clients, en adaptant des actions marketing spécifiques à leurs comportements d'achat.
 
 ![](reco-dark.png){fig-align="center" fig-alt="Recommandation Marketing/CRM"}
 
