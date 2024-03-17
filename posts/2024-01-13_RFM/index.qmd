@@ -8,10 +8,10 @@ format:
     html: 
         code-fold: true
 draft: false 
----
+--- 
 
 ![](RFM.png)
-
+ 
 # en construction ...
 
 ## Contexte
@@ -95,20 +95,28 @@ data_rfm = data %>%
   knitr::kable(head(data_rfm,2),format = "html")
 ```
 
+# Python 
+
+en construction ...
+
+
+:::
 
 ## Nouveaux clients
 
 Les clients dont l'ancienneté est inférieure à 3 mois, cette durée peut varier selon le secteur d'activité et la nature des données. Par exemple, dans le retail (mode et habillement) la période considérée peut souvent s'étendre jusqu'à 6 mois.
 
-```{r warning=FALSE,message=FALSE}
-data_nouveaux=data_rfm %>% filter(Anciennete<30.5*3)
-```
-
 
 
 ## Clients fidèles
 
+::: {.panel-tabset}
+
+
+# R
+
 ```{r warning=FALSE,message=FALSE}
+data_nouveaux=data_rfm %>% filter(Anciennete<30.5*3)
 data_fideles=data_rfm %>% anti_join(data_nouveaux,by='CustomerID') 
 ```
 
@@ -121,11 +129,23 @@ km=kmeans(data_fideles_standardisees, 5)
 
 data_fideles_km=data_fideles %>% mutate(segment=factor(km$cluster))
 
-knitr::kable(data_fideles_km%>% count(segment)%>% mutate(poids=round(100*n/sum(n),1))%>% arrange(segment),format = "html")
-
 ```
 
+# Python 
+
+en construction ...
+
+
+:::
+
 ### Projection sur R-F-M
+
+La représentation des clusters KMeans selon les dimensions RFM nous aide à définir les seuils nécessaires à l'élaboration des segments finaux. Il est important de noter que la détermination de ces seuils s'appuie non seulement sur les résultats du KMeans mais également sur des critères métiers spécifiques au domaine d'activité, assurant ainsi la pertinence des segments obtenus.
+
+::: {.panel-tabset}
+
+
+# R
 
 ::: {.panel-tabset}
 
@@ -144,10 +164,13 @@ fig
 ```{r warning=FALSE,message=FALSE}
 
 ggplot(data_fideles_km %>% filter(Frequence<20))+
-geom_point(aes(x=Frequence,y=Recence,color=segment))+
-geom_hline(yintercept=30.5*6)+
-geom_vline(xintercept=6.2)+
-geom_vline(xintercept=3.2)+
+geom_point(aes(x=Frequence,y=Recence,color=segment),alpha=0.3)+
+geom_hline(yintercept=30.5*6,lty=2 ,color="#D00000",size=1)+
+annotate("text",x=15,y=32*6,label="Seuil Récence",color="#BEBDBD")+
+annotate("text",x=15,y=29*6,label="6 mois",color="#848484")+
+
+annotate("label",x=15,y=300,label="ENDORMIS",color="#AD0BA5",size=3,font="face")+
+
 theme_bw()
 ```
 
@@ -157,13 +180,33 @@ theme_bw()
 ```{r warning=FALSE,message=FALSE}
 
 ggplot(data_fideles_km %>% filter(Frequence<40))+
-geom_point(aes(x=Frequence,y=Montant,color=segment))+
-geom_hline(yintercept=650)+
-geom_hline(yintercept=200)+
-theme_bw()
+geom_point(aes(x=Frequence,y=Montant,color=segment),alpha=0.3)+
+geom_hline(yintercept=650,lty=2 ,color="#D00000",size=1)+
+annotate("text",x=35,y=670,label="Seuil 1 Montant",color="#BEBDBD")+
+annotate("text",x=35,y=630,label="650€",color="#848484")+
+annotate("label",x=35,y=800,label="VIP",color="#0B9BAD",size=3,font="face")+
+
+geom_hline(yintercept=200,lty=2 ,color="#D00000",size=1)+
+annotate("text",x=35,y=220,label="Seuil 2 Montant",color="#BEBDBD")+
+annotate("text",x=35,y=180,label="200€",color="#848484")+
+
+annotate("segment", x = 6.3, xend = 6.3, y = 650, yend = 200,lty=2 ,color="#D00000",size=1)+
+geom_curve(aes(x=10, y=500, xend=6.3, yend=400),
+               arrow = arrow(length=unit(.2, 'cm')),color="#848484", curvature = -0.5)+
+geom_curve(aes(x=10, y=10, xend=3.3, yend=0),
+               arrow = arrow(length=unit(.2, 'cm')),color="#848484", curvature = -0.1)+
+
+annotate("text",x=10,y=520,label="Seuil 1 Fréquence: 6",color="#848484")+
+annotate("text",x=10,y=20,label="Seuil 2 Fréquence: 3",color="#848484")+
+
+annotate("label",x=35,y=400,label="REGULIER",color="#0064D0",size=3,font="face")+
+annotate("label",x=35,y=100,label="OCCASIONNEL",color="#63A10F",size=3,font="face")+
+annotate("segment", x = 3.3, xend = 3.3, y = 0, yend = 200,lty=2 ,color="#D00000",size=1)+
+annotate("label",x=2,y=400,label="PETIT",color="#D19403",size=3,font="face")+
+annotate("label",x=3,y=100,label="OPPORTUNISTE",color="#D00000",size=3,font="face")+
+theme_bw()  
+
 ```
-
-
 
 :::
 
@@ -174,7 +217,75 @@ en construction ...
 
 :::
 
+## Les segments
+ 
+::: {.panel-tabset}
+
+
+# R
+
+```{r warning=FALSE,message=FALSE}
+
+seuil_R=30.5*6 #(6 mois)
+seuil_M1=650 
+seuil_M2=200 
+seuil_F=6
+seuil_F2=3
+
+
+data_rfm_f=data_rfm %>% 
+mutate(segment_f=if_else(Anciennete<30.5*3,"Nouveau",
+        if_else(Recence>seuil_R,"Endormis",
+        if_else(Montant>seuil_M1,"VIP",
+        if_else(Frequence>seuil_F &  Montant>seuil_M2,"Régulier",
+        if_else(Frequence<=seuil_F &  Montant>seuil_M2,"Occasionnel",
+        if_else(Frequence<=seuil_F2 &  Frequence<=seuil_F &  Montant<=seuil_M2,"Opportuniste",
+        if_else(Frequence>seuil_F2  & Montant<=seuil_M2,"Petit","NA"))))))))
+
+
+data_decribe=data_rfm_f %>% group_by(segment_f) %>% 
+summarise(nb_clients=n_distinct(CustomerID),
+Montant_tot=sum(Montant),
+Montant_moy=mean(Montant),
+Frequence_moy=mean(Frequence),
+Recence_moy=mean(Recence)) %>% 
+ungroup() %>% 
+mutate(pct_clt=nb_clients/sum(nb_clients), pct_ca=Montant_tot/sum(Montant_tot),segment_f=factor(segment_f,levels=c("VIP","Régulier","Occasionnel","Opportuniste","Petit","Endormis","Nouveau"))) %>% arrange(segment_f) 
+
+
+fig <- plot_ly(
+  type="treemap",
+
+  labels=data_decribe$segment_f,
+  parents=rep("",7),
+  values=data_decribe$pct_clt,
+   marker = list(colors=c("#0B9BAD", 
+                         "#0064D0", 
+                         "#63A10F", 
+                         "#D19403", 
+                         "#D00000", 
+                         "#AD0BA5", 
+                         "#BEBDBD")
+
+),
+text=paste0(
+"%Clientes: ",round(100*data_decribe$pct_clt),"%",'<br>',
+"%CA: ",round(100*data_decribe$pct_ca),"%",'<br>'),hoverinfo = 'text' )
+fig
+
+```
+
+
+# Python 
+
+en construction ...
+
+
+:::
+
 ## Recommandation Marketing/CRM
+
+La segmentation RFM nous permet de cibler plus efficacement les clients, en adaptant des actions marketing spécifiques à leurs comportements d'achat.
 
 ![](reco-dark.png){fig-align="center" fig-alt="Recommandation Marketing/CRM"}
 
