@@ -64,7 +64,9 @@ Ce jeu de données contient toutes les transactions réalisées pour une entrepr
 # R
 ### Chargement des données
 
-```{r warning=FALSE,message=FALSE}
+```{r}
+#| warning: false
+#| message: false
 library(data.table)
 library(tidyverse)
 library(lubridate)
@@ -79,7 +81,9 @@ data <- fread("data/OnlineRetail.csv", drop = c(3,8))%>%
 
 ### Calcul RFM
 
-```{r warning=FALSE,message=FALSE}
+```{r}
+#| warning: false
+#| message: false
 data_rfm = data %>%
   group_by(CustomerID) %>%
   summarise(Frequence = n_distinct(InvoiceNo),
@@ -97,7 +101,26 @@ data_rfm = data %>%
 
 # Python 
 
-en construction ...
+```{r setup}
+#| echo: false
+reticulate::use_python('C:\\Python311\\python.exe')
+
+```
+
+```{python}
+#| warning: false
+#| message: false
+
+import pandas as pd
+import numpy as np 
+import plotly.express as px
+from IPython.display import display
+
+data = pd.read_csv('data/OnlineRetail.csv', encoding='ISO-8859-1')
+data.drop(data.columns[[2, 7]],axis=1,inplace=True)
+
+display(data.head(2)) 
+```
 
 
 :::
@@ -118,13 +141,17 @@ Dans le  retail (mode et l'habillement), un client fidèle est généralement d�
 
 # R
 
-```{r warning=FALSE,message=FALSE}
+```{r}
+#| warning: false
+#| message: false
 data_nouveaux=data_rfm %>% filter(Anciennete<30.5*3)
 data_fideles=data_rfm %>% anti_join(data_nouveaux,by='CustomerID') 
 ```
 
 ### Kmeans pour définir les seuils
-```{r warning=FALSE,message=FALSE}
+```{r}
+#| warning: false
+#| message: false
 data_fideles_standardisees <- scale(data_fideles %>% select(Frequence,Montant,Recence)) 
 
 set.seed(123)
@@ -154,7 +181,9 @@ La représentation des clusters Kmeans selon les dimensions RFM aide à définir
 
 #### RFM
 
-```{r warning=FALSE,message=FALSE}
+```{r}
+#| warning: false
+#| message: false
 fig <- plot_ly(data=data_fideles_km %>% filter(Frequence<40),x = ~Montant, y = ~Frequence, z = ~Recence,color = ~segment,
 text=~paste0("R:",Recence,'<br>',
 "F:",Frequence,'<br>',
@@ -164,7 +193,9 @@ fig
 
 #### RF
 
-```{r warning=FALSE,message=FALSE}
+```{r}
+#| warning: false
+#| message: false
 
 ggplot(data_fideles_km %>% filter(Frequence<20))+
 geom_point(aes(x=Frequence,y=Recence,color=segment),alpha=0.3)+
@@ -180,7 +211,9 @@ theme_bw()
 
 #### FM
 
-```{r warning=FALSE,message=FALSE}
+```{r}
+#| warning: false
+#| message: false
 
 ggplot(data_fideles_km %>% filter(Frequence<40))+
 geom_point(aes(x=Frequence,y=Montant,color=segment),alpha=0.3)+
@@ -203,9 +236,9 @@ annotate("text",x=10,y=520,label="Seuil 1 Fréquence: 6",color="#848484")+
 annotate("text",x=10,y=20,label="Seuil 2 Fréquence: 3",color="#848484")+
 
 annotate("label",x=35,y=400,label="REGULIER",color="#0064D0",size=3,font="face")+
-annotate("label",x=35,y=100,label="OCCASIONNEL",color="#63A10F",size=3,font="face")+
+annotate("label",x=2,y=400,label="OCCASIONNEL",color="#63A10F",size=3,font="face")+
 annotate("segment", x = 3.3, xend = 3.3, y = 0, yend = 200,lty=2 ,color="#D00000",size=1)+
-annotate("label",x=2,y=400,label="PETIT",color="#D19403",size=3,font="face")+
+annotate("label",x=35,y=100,label="PETIT",color="#D19403",size=3,font="face")+
 annotate("label",x=3,y=100,label="OPPORTUNISTE",color="#D00000",size=3,font="face")+
 theme_bw()  
 
@@ -229,7 +262,9 @@ la description détaillée des segments est une étape fondamentale pour saisir 
 
 # R
 
-```{r warning=FALSE,message=FALSE}
+```{r}
+#| warning: false
+#| message: false
 
 seuil_R=30.5*6 #(6 mois)
 seuil_M1=650 
