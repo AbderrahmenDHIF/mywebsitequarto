@@ -236,7 +236,7 @@ annotate("text",x=10,y=520,label="Seuil 1 Fréquence: 6",color="#848484")+
 annotate("text",x=10,y=20,label="Seuil 2 Fréquence: 3",color="#848484")+
 
 annotate("label",x=35,y=400,label="REGULIER",color="#0064D0",size=3,font="face")+
-annotate("label",x=2,y=400,label="OCCASIONNEL",color="#63A10F",size=3,font="face")+
+annotate("label",x=3,y=400,label="OCCASIONNEL",color="#63A10F",size=3,font="face")+
 annotate("segment", x = 3.3, xend = 3.3, y = 0, yend = 200,lty=2 ,color="#D00000",size=1)+
 annotate("label",x=35,y=100,label="PETIT",color="#D19403",size=3,font="face")+
 annotate("label",x=3,y=100,label="OPPORTUNISTE",color="#D00000",size=3,font="face")+
