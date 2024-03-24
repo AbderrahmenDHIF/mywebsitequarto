@@ -55,14 +55,16 @@ l'adoption de la segmentation RFM dans le retail offre une multitude d'avantages
 
 Dans cette partie, nous allons explorer comment implémenter la segmentation RFM en utilisant R et Python, en nous basant sur le jeu de données 'Online Retail' disponible sur Kaggle.
 
-**Informations sur le Jeu de Données :**
+
+### Chargement des données
+
 Ce jeu de données contient toutes les transactions réalisées pour une entreprise de vente en ligne basée au Royaume-Uni, entre le 01/12/2009 et le 09/12/2011.
+[lien](https://www.kaggle.com/datasets/vijayuv/onlineretail)
 
 ::: {.panel-tabset}
 
-
 # R
-### Chargement des données
+
 
 ```{r}
 #| warning: false
@@ -73,33 +75,14 @@ library(lubridate)
 library(plotly)
 
 data <- fread("data/OnlineRetail.csv", drop = c(3,8))%>%
-  mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %>% 
-  filter(UnitPrice>0,Quantity>0)
+  mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %>% # Convertir InvoiceDate en datetime
+  filter(UnitPrice>0,Quantity>0) # Filtrer les lignes
 
   knitr::kable(head(data,2),format = "html")
 ```
 
-### Calcul RFM
-
-```{r}
-#| warning: false
-#| message: false
-data_rfm = data %>%
-  group_by(CustomerID) %>%
-  summarise(Frequence = n_distinct(InvoiceNo),
-  Montant = sum(UnitPrice),
-  dernier_achat=max(InvoiceDate),
-  premier_achat=min(InvoiceDate))  %>% 
-  ungroup() %>% 
-  mutate(Recence=as.numeric(max(dernier_achat)-dernier_achat),
-  Anciennete=as.numeric(max(dernier_achat)-premier_achat)) %>% 
-  filter(Montant<1000) %>% 
-  select(-dernier_achat,-premier_achat)
-
-  knitr::kable(head(data_rfm,2),format = "html")
-```
-
 # Python 
+
 
 ```{r setup}
 #| echo: false
@@ -115,12 +98,74 @@ import pandas as pd
 import numpy as np 
 import plotly.express as px
 from IPython.display import display
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from plotnine import ggplot, geom_point, aes, geom_hline, annotate, theme_bw, labs
 
 data = pd.read_csv('data/OnlineRetail.csv', encoding='ISO-8859-1')
 data.drop(data.columns[[2, 7]],axis=1,inplace=True)
+data = data[(data['UnitPrice'] > 0) & (data['Quantity'] > 0)] # Filtrer les lignes
+data['InvoiceDate'] = pd.to_datetime(data['InvoiceDate'].str.slice(0, 10), dayfirst=True) # Convertir InvoiceDate en datetime
 
 display(data.head(2)) 
 ```
+
+:::
+
+### Calcul RFM
+
+Dans cette partie, nous calculons les variables RFM
+
+::: {.panel-tabset}
+
+# R
+
+
+```{r}
+#| warning: false
+#| message: false
+
+# Grouper les données par CustomerID et calculer les aggrégats
+data_rfm = data %>%
+  group_by(CustomerID) %>%
+  summarise(Frequence = n_distinct(InvoiceNo),  # F: Nombre d'achats
+  Montant = sum(UnitPrice), # M: Montant par client
+  dernier_achat=max(InvoiceDate), # Date du dernier achat
+  premier_achat=min(InvoiceDate))  %>% # Date du premier achat
+  ungroup() %>% 
+  mutate(Recence=as.numeric(max(dernier_achat)-dernier_achat), # Calculer la Recence 
+  Anciennete=as.numeric(max(dernier_achat)-premier_achat)) %>% # Calculer l'Anciennete
+  filter(Montant<1000) %>% # Filtrer les lignes où Montant < 1000
+  select(-dernier_achat,-premier_achat) #exclure les colonnes 'dernier_achat' et 'premier_achat'
+
+  knitr::kable(head(data_rfm,2),format = "html")
+```
+
+# Python 
+
+```{python}
+#| warning: false
+#| message: false
+
+# Grouper les données par CustomerID et calculer les aggrégats
+data_rfm = data.groupby('CustomerID').agg(
+    Frequence=('InvoiceNo', 'nunique'),  # F: Nombre d'achats
+    Montant=('UnitPrice', 'sum'),  # M: Montant par client
+    dernier_achat=('InvoiceDate', 'max'),  # Date du dernier achat
+    premier_achat=('InvoiceDate', 'min')  # Date du premier achat
+).reset_index()
+
+# Calculer la Recence et l'Anciennete
+data_rfm['Recence'] = (data_rfm['dernier_achat'].max() - data_rfm['dernier_achat']).dt.days
+data_rfm['Anciennete'] = (data_rfm['dernier_achat'].max() - data_rfm['premier_achat']).dt.days
+
+# Filtrer les lignes où Montant < 1000 et exclure les colonnes 'dernier_achat' et 'premier_achat'
+data_rfm = data_rfm[data_rfm['Montant'] < 1000].drop(columns=['dernier_achat', 'premier_achat'])
+
+display(data_rfm.head(2)) 
+
+```
+
 
 
 :::
@@ -144,26 +189,77 @@ Dans le  retail (mode et l'habillement), un client fidèle est généralement d�
 ```{r}
 #| warning: false
 #| message: false
+
+# Filtrer pour obtenir les nouveaux clients (Ancienneté < 3 mois)
 data_nouveaux=data_rfm %>% filter(Anciennete<30.5*3)
+# Obtenir les clients fidèles en retirant les nouveaux clients 
 data_fideles=data_rfm %>% anti_join(data_nouveaux,by='CustomerID') 
 ```
 
+
+# Python 
+
+```{python}
+#| warning: false
+#| message: false
+
+# Filtrer pour obtenir les nouveaux clients (Ancienneté < 3 mois)
+data_nouveaux = data_rfm[data_rfm['Anciennete'] < 30.5 * 3]
+# Obtenir les clients fidèles en retirant les nouveaux clients 
+data_fideles = data_rfm[~data_rfm['CustomerID'].isin(data_nouveaux['CustomerID'])]
+
+```
+
+:::
+
 ### Kmeans pour définir les seuils
+
+
+Nous utiliserons le K-means pour segmenter les clients selon leurs scores RFM afin de définir des seuils distincts pour chaque critère
+
+::: {.panel-tabset}
+
+# R
+
 ```{r}
 #| warning: false
 #| message: false
+
+# Standardiser les les colonnes RFM
 data_fideles_standardisees <- scale(data_fideles %>% select(Frequence,Montant,Recence)) 
 
+# Fixer le seed pour la reproductibilité
 set.seed(123)
+# Exécuter K-means avec 5 clusters
 km=kmeans(data_fideles_standardisees, 5)
 
+# Ajouter les labels des clusters
 data_fideles_km=data_fideles %>% mutate(segment=factor(km$cluster))
 
 ```
 
 # Python 
 
-en construction ...
+```{python}
+#| warning: false
+#| message: false
+
+# Standardiser les les colonnes RFM
+scaler = StandardScaler()
+features_standardisees = scaler.fit_transform(data_fideles[['Frequence', 'Montant', 'Recence']])
+
+
+# Exécuter K-means avec 5 clusters
+kmeans = KMeans(n_clusters=5, random_state=123) # Fixer le random_state pour la reproductibilité
+kmeans.fit(features_standardisees)
+
+# Ajouter les labels des clusters au dataframe original
+data_fideles['segment'] = kmeans.labels_+1
+data_fideles['segment']=data_fideles['segment'].astype('category')
+# Afficher les premières lignes pour vérifier
+display(data_fideles.head(2))
+
+```
 
 
 :::
@@ -187,9 +283,12 @@ La représentation des clusters Kmeans selon les dimensions RFM aide à définir
 fig <- plot_ly(data=data_fideles_km %>% filter(Frequence<40),x = ~Montant, y = ~Frequence, z = ~Recence,color = ~segment,
 text=~paste0("R:",Recence,'<br>',
 "F:",Frequence,'<br>',
-"M:",round(Montant),'<br>') , type = 'scatter3d', mode = 'markers',hoverinfo = 'text')
+"M:",round(Montant),'<br>') , type = 'scatter3d', mode = 'markers',hoverinfo = 'text')%>%
+layout(title="Visualisation 3D des Clients Fidèles par RFM et Segment")
 fig
 ```
+
+
 
 #### RF
 
@@ -248,8 +347,68 @@ theme_bw()
 
 # Python 
 
-en construction ...
+::: {.panel-tabset}
 
+#### RFM
+
+
+```{python}
+#| warning: false
+#| message: false
+
+# Filtrer le DataFrame
+data_fideles_km_filtered = data_fideles[data_fideles['Frequence'] < 40]
+
+# Créer le graphique 3D
+fig = px.scatter_3d(data_fideles_km_filtered, x='Montant', y='Frequence', z='Recence',
+                    color='segment',
+                    title="Visualisation 3D des Clients Fidèles par RFM et Segment")
+
+# Afficher le graphique
+fig.show()
+
+```
+
+
+#### RF
+
+
+```{python}
+#| warning: false
+#| message: false
+
+
+
+# Filtre les données pour les cas où la Fréquence est inférieure à 20
+data_filtered = data_fideles_km_filtered[data_fideles_km_filtered['Frequence'] < 20]
+
+# Création du graphique
+(ggplot(data_filtered, aes(x='Frequence', y='Recence', color='segment')) + 
+ geom_point(alpha=0.3) +  
+ geom_hline(yintercept=30.5*6, linetype='dashed', color="#D00000", size=1) +  
+ annotate("text", x=15, y=32*6, label="Seuil Récence", color="#BEBDBD") + 
+ annotate("text", x=15, y=29*6, label="6 mois", color="#848484") +  
+ annotate("text", x=15, y=300, label="ENDORMIS", color="#AD0BA5", size=13, fontstyle='italic') +  
+ theme_bw() +  
+ labs(title="Analyse RF des clients fidèles", x="Fréquence", y="Récence")  
+).draw()
+
+
+```
+
+
+#### FM
+
+
+```{python}
+#| warning: false
+#| message: false
+
+
+
+```
+
+:::
 
 :::
 
@@ -337,4 +496,4 @@ La segmentation RFM, avec sa simplicité et sa facilité d'implémentation, s'es
 
 Néanmoins, elle présente des limites, principalement son focus sur des aspects financiers, en négligeant d'autres facettes importantes du comportement client comme les préférences ou les habitudes d'achat. De plus, elle peut entraîner une sur-sollicitation des clients les plus fidèles, risquant de diminuer l'efficacité des efforts marketing.
 
-À mesure que l’entreprise gagne en maturité Data, il sera nécessaire de s’orienter vers une segmentation plus complète et plus stratégique, telle que la segmentation comportementale, pour une analyse plus détaillée et précise de nos clients en prenant en compte leurs préférences et leurs habitudes d'achat.
+À mesure que l’entreprise gagne en maturité Data, il sera nécessaire de s’orienter vers une segmentation plus complète et plus stratégique, telle que la segmentation comportementale, pour une analyse plus détaillée et précise des clients en prenant en compte leurs préférences et leurs habitudes d'achat.
