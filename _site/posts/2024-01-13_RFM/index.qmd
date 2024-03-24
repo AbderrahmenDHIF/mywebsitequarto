@@ -526,7 +526,8 @@ fig <- plot_ly(
 ),
 text=paste0(
 "%Clientes: ",round(100*data_decribe$pct_clt),"%",'<br>',
-"%CA: ",round(100*data_decribe$pct_ca),"%",'<br>'),hoverinfo = 'text' )
+"%CA: ",round(100*data_decribe$pct_ca),"%",'<br>'),hoverinfo = 'text' )%>%
+layout(title="Répartition des clients par segment")
 fig
 
 ```
@@ -595,7 +596,7 @@ fig = go.Figure(go.Treemap(
     hoverinfo='text'
 ))
 
-fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+fig.update_layout(title="Répartition des clients par segment",margin=dict(t=50, l=0, r=0, b=0))
 
 ```
 
