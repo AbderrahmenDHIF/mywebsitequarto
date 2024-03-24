@@ -12,7 +12,6 @@ draft: false
 
 ![](RFM.png)
  
-# en construction ...
 
 ## Contexte
 
@@ -100,7 +99,8 @@ import plotly.express as px
 from IPython.display import display
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
-from plotnine import ggplot, geom_point, aes, geom_hline, annotate, theme_bw, labs
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 data = pd.read_csv('data/OnlineRetail.csv', encoding='ISO-8859-1')
 data.drop(data.columns[[2, 7]],axis=1,inplace=True)
@@ -302,7 +302,7 @@ geom_hline(yintercept=30.5*6,lty=2 ,color="#D00000",size=1)+
 annotate("text",x=15,y=32*6,label="Seuil Récence",color="#BEBDBD")+
 annotate("text",x=15,y=29*6,label="6 mois",color="#848484")+
 
-annotate("label",x=15,y=300,label="ENDORMIS",color="#AD0BA5",size=3,font="face")+
+annotate("label",x=15,y=300,label="ENDORMIS",color="#AD0BA5",size=3,font="face")+labs(title='Seuil Récence')+
 
 theme_bw()
 ```
@@ -339,7 +339,7 @@ annotate("label",x=3,y=400,label="OCCASIONNEL",color="#63A10F",size=3,font="face
 annotate("segment", x = 3.3, xend = 3.3, y = 0, yend = 200,lty=2 ,color="#D00000",size=1)+
 annotate("label",x=35,y=100,label="PETIT",color="#D19403",size=3,font="face")+
 annotate("label",x=3,y=100,label="OPPORTUNISTE",color="#D00000",size=3,font="face")+
-theme_bw()  
+theme_bw()  +labs(title='Seuils Fréquence et Montant')
 
 ```
 
@@ -380,18 +380,30 @@ fig.show()
 
 
 # Filtre les données pour les cas où la Fréquence est inférieure à 20
-data_filtered = data_fideles_km_filtered[data_fideles_km_filtered['Frequence'] < 20]
+data_filtered = data_fideles[data_fideles['Frequence'] < 20]
 
-# Création du graphique
-(ggplot(data_filtered, aes(x='Frequence', y='Recence', color='segment')) + 
- geom_point(alpha=0.3) +  
- geom_hline(yintercept=30.5*6, linetype='dashed', color="#D00000", size=1) +  
- annotate("text", x=15, y=32*6, label="Seuil Récence", color="#BEBDBD") + 
- annotate("text", x=15, y=29*6, label="6 mois", color="#848484") +  
- annotate("text", x=15, y=300, label="ENDORMIS", color="#AD0BA5", size=13, fontstyle='italic') +  
- theme_bw() +  
- labs(title="Analyse RF des clients fidèles", x="Fréquence", y="Récence")  
-).draw()
+
+
+
+fig, ax = plt.subplots()
+
+
+scatter = ax.scatter(data_filtered['Frequence'], data_filtered['Recence'], 
+                     alpha=0.3, c=pd.factorize(data_filtered['segment'])[0], cmap='viridis')
+fig.set_facecolor('white')  
+ax.set_facecolor('white') 
+ax.axhline(y=30.5*6, linestyle='--', color='#D00000', linewidth=1)
+ax.text(15, 32*6, "Seuil Récence", color="#BEBDBD")
+ax.text(15, 27*6, "6 mois", color="#848484")
+ax.text(15, 300, "ENDORMIS", color="#AD0BA5", fontsize=12)
+ax.set_xlabel('Fréquence')
+ax.set_ylabel('Récence')
+ax.set_title('Seuil Récence')
+
+
+
+
+plt.show()
 
 
 ```
@@ -404,6 +416,50 @@ data_filtered = data_fideles_km_filtered[data_fideles_km_filtered['Frequence'] <
 #| warning: false
 #| message: false
 
+
+
+fig, ax = plt.subplots()
+
+
+scatter = ax.scatter(data_fideles_km_filtered['Frequence'], data_fideles_km_filtered['Montant'], alpha=0.1, c=data_fideles_km_filtered['segment'])
+fig.set_facecolor('white')  
+ax.set_facecolor('white') 
+ax.axhline(650, linestyle='--', color='#D00000', linewidth=1.5)
+ax.axhline(200, linestyle='--', color='#D00000', linewidth=1.5)
+
+
+ax.text(35, 670, 'Seuil 1 Montant', color='#BEBDBD')
+ax.text(35, 610, '650€', color='#848484')
+ax.text(35, 800, 'VIP', color='#0B9BAD', fontsize=12)
+
+ax.text(35, 220, 'Seuil 2 Montant', color='#BEBDBD')
+ax.text(35, 160, '200€', color='#848484')
+
+ax.text(35, 400, 'REGULIER', color='#0064D0', fontsize=12)
+ax.text(0, 400, 'OCCASIONNEL', color='#63A10F', fontsize=12)
+ax.text(35, 100, 'PETIT', color='#D19403', fontsize=12)
+ax.text(0, 100, 'OPPORTUNISTE', color='#D00000', fontsize=12)
+
+
+ax.annotate("", xy=(3.3, 0), xytext=(3.3, 200),
+             arrowprops=dict(arrowstyle="-", linestyle="--", color="#D00000", linewidth=1.5))
+ax.annotate("", xy=(6.3, 200), xytext=(6.3, 650),
+             arrowprops=dict(arrowstyle="-", linestyle="--", color="#D00000", linewidth=1.5))
+ax.annotate("", xy=(10, 500), xytext=(6.3, 400),
+             arrowprops=dict(arrowstyle="->", color="#848484"))
+ax.annotate("", xy=(10, 10), xytext=(3.3, 0),
+             arrowprops=dict(arrowstyle="->", color="#848484"))
+
+ax.text(10, 520, 'Seuil 1 Fréquence: 6', color='#848484')
+ax.text(10, 20, 'Seuil 2 Fréquence: 3', color='#848484')
+
+
+ax.set_xlabel('Fréquence')
+ax.set_ylabel('Montant')
+ax.set_title('Seuils Fréquence et Montant')
+
+
+plt.show()
 
 
 ```
@@ -425,13 +481,14 @@ la description détaillée des segments est une étape fondamentale pour saisir 
 #| warning: false
 #| message: false
 
+# Définition des seuils
 seuil_R=30.5*6 #(6 mois)
 seuil_M1=650 
 seuil_M2=200 
 seuil_F=6
 seuil_F2=3
 
-
+# Segmentation des clients
 data_rfm_f=data_rfm %>% 
 mutate(segment_f=if_else(Anciennete<30.5*3,"Nouveau",
         if_else(Recence>seuil_R,"Endormis",
@@ -477,7 +534,70 @@ fig
 
 # Python 
 
-en construction ...
+```{python}
+#| warning: false
+#| message: false
+
+
+# Définition des seuils
+seuil_R = 30.5 * 6  # 6 mois
+seuil_M1 = 650
+seuil_M2 = 200
+seuil_F = 6
+seuil_F2 = 3
+
+# Segmentation des clients
+conditions = [
+    (data_rfm['Anciennete'] < 30.5 * 3),
+    (data_rfm['Recence'] > seuil_R),
+    (data_rfm['Montant'] > seuil_M1),
+    ((data_rfm['Frequence'] > seuil_F) & (data_rfm['Montant'] > seuil_M2)),
+    ((data_rfm['Frequence'] <= seuil_F) & (data_rfm['Montant'] > seuil_M2)),
+    ((data_rfm['Frequence'] <= seuil_F2) & (data_rfm['Montant'] <= seuil_M2)),
+    ((data_rfm['Frequence'] > seuil_F2) & (data_rfm['Montant'] <= seuil_M2))
+]
+
+choices = ['Nouveau', 'Endormis', 'VIP', 'Régulier', 'Occasionnel', 'Opportuniste', 'Petit']
+
+data_rfm['segment_f'] = np.select(conditions, choices, default='NA')
+
+
+data_rfm['CustomerID'] = data_rfm['CustomerID'].astype('category')
+
+
+data_describe = data_rfm.groupby('segment_f').agg(
+    nb_clients=pd.NamedAgg(column='CustomerID', aggfunc='nunique'),
+    Montant_tot=pd.NamedAgg(column='Montant', aggfunc='sum'),
+    Montant_moy=pd.NamedAgg(column='Montant', aggfunc='mean'),
+    Frequence_moy=pd.NamedAgg(column='Frequence', aggfunc='mean'),
+    Recence_moy=pd.NamedAgg(column='Recence', aggfunc='mean')
+).reset_index()
+
+data_describe['pct_clt'] = data_describe['nb_clients'] / data_describe['nb_clients'].sum()
+data_describe['pct_ca'] = data_describe['Montant_tot'] / data_describe['Montant_tot'].sum()
+
+# Tri des segments dans l'ordre spécifique
+order = ["VIP", "Régulier", "Occasionnel", "Opportuniste", "Petit", "Endormis", "Nouveau"]
+data_describe['segment_f'] = pd.Categorical(data_describe['segment_f'], categories=order, ordered=True)
+data_describe = data_describe.sort_values('segment_f')
+
+
+
+colors = ["#0B9BAD", "#0064D0", "#63A10F", "#D19403", "#D00000", "#AD0BA5", "#BEBDBD"]
+
+fig = go.Figure(go.Treemap(
+    labels=data_describe['segment_f'],
+    parents=[""] * len(data_describe),
+    values=data_describe['pct_clt'],
+    marker=dict(colors=colors),
+    text=[f"%Clientes: {round(100 * pct, 0)}%<br>%CA: {round(100 * ca, 0)}%"
+          for pct, ca in zip(data_describe['pct_clt'], data_describe['pct_ca'])],
+    hoverinfo='text'
+))
+
+fig.update_layout(margin=dict(t=0, l=0, r=0, b=0))
+
+```
 
 
 :::
