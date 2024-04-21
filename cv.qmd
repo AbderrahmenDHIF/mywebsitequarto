@@ -50,7 +50,6 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 
 ::: {.animate__animated .animate__fadeInUp}
 
-{{< fa solid check size=Small >}} Analyse des données clients <br>
 {{< fa solid check size=Small >}} Reporting automatique et analyse des données clients <br>
 {{< fa solid check size=Small >}} Scoring appétence produits <br>
 {{< fa solid check size=Small >}} Segmentation comportementale des clients <br>
@@ -85,7 +84,6 @@ Spécialisé dans la connaissance client depuis plus de 7 ans, notamment dans le
 {{< fa solid check size=Small >}} Classification des produits selon la mixité <br>
 {{< fa solid check size=Small >}} Calcul des indices de mixité entre les produits <br>
 {{< fa solid check size=Small >}} Etablissement des règles d’associations <br>
-{{< fa solid check size=Small >}} Classification des produits <br>
 
 ### Data Scientist/Analyst
 ***Vivarte groupe*** [04/2016 -- 07/2017]{.cvdate} <br> ![](img/vivarte-dark.png){width=100px height=25px style="float:right; margin-right:10px; margin-top:20px"} 
