@@ -9,7 +9,13 @@ format:
         code-fold: true
         include-in-header:
           - text: |
-              <link href="/posts/2024-01-13_RFM/shema_rfm.jsonld" rel="alternate" type="application/ld+json" ></link>             
+              <script>
+              $.getJSON( "/posts/2024-01-13_RFM/shema_rfm.jsonld", function( data ) {
+              $( "<script/>", {
+              "type": "application/ld+json",
+              "html": JSON.stringify(data)
+              }).appendTo( "head" );
+              }); </script>        
 draft: false 
 --- 
 
