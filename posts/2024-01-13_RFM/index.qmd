@@ -16,8 +16,10 @@ format:
               "description": "La segmentation RFM est une technique de marketing utilisée pour analyser et catégoriser les clients en fonction de trois critères : Récence, Fréquence, Montant.",
               "articleBody": "La segmentation RFM est une technique de marketing utilisée pour analyser et catégoriser les clients en fonction de trois critères : Récence, Fréquence, Montant. Récence mesure le temps écoulé depuis le dernier achat d’un client. Fréquence évalue à quelle fréquence un client effectue des achats sur une période donnée. Montant analyse le total des dépenses d’un client.",
               "author": {
-               "@type": "Person",
-               "name": "Abderrahmen Dhif"
+                "@type": "Person",
+                "name": "Abderrahmen Dhif",
+                "jobTitle": "Data Sientist/Analyst",
+                "url":"https://abderrahmendhif.com/cv"
               },
               "mainEntity": {
                 "@type": "Thing",
@@ -30,7 +32,7 @@ format:
                 "height": 628,
                 "width": 628
               },
-              "datePublished": "2024-01-13"
+              "datePublished": "2024-01-13T08:00:00+08:00"
               }</script>   
 draft: false 
 --- 
