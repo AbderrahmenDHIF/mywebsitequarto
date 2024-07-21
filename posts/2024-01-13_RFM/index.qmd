@@ -9,7 +9,7 @@ format:
         code-fold: true
         include-in-header:
           - text: |
-              <script type="application/ld+json" src="/posts/2024-01-13_RFM/shema_rfm.json"></script>
+              <script type="application/ld+json" src="/posts/2024-01-13_RFM/shema_rfm.jsonld"></script>
 draft: false 
 --- 
 
