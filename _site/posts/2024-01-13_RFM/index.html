@@ -136,13 +136,18 @@ cookieconsent.run({
 <script src="../../site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
 <link href="../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-<script>
-$.getJSON( "/posts/2024-01-13_RFM/shema_rfm.jsonld", function( data ) {
-$( "<script/>", {
-"type": "application/ld+json",
-"html": JSON.stringify(data)
-}).appendTo( "head" );
-}); </script>
+<script type="application/ld+json">{
+"@context": "https://schema.org",
+"@type": "TechArticle",
+"headline": "Qu’est-ce que la Segmentation RFM ?",
+"description": "La segmentation RFM est une technique de marketing utilisée pour analyser et catégoriser les clients en fonction de trois critères : Récence, Fréquence, Montant.",
+"articleBody": "La segmentation RFM est une technique de marketing utilisée pour analyser et catégoriser les clients en fonction de trois critères : Récence, Fréquence, Montant. Récence mesure le temps écoulé depuis le dernier achat d’un client. Fréquence évalue à quelle fréquence un client effectue des achats sur une période donnée. Montant analyse le total des dépenses d’un client.",
+"mainEntity": {
+  "@type": "Thing",
+  "name": "Segmentation RFM",
+  "description": "Une technique de marketing utilisée pour analyser et catégoriser les clients en fonction de trois critères : Récence, Fréquence, Montant."
+}
+}</script>
 
 
 <link rel="stylesheet" href="../../style_g.css">
