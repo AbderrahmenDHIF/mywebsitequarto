@@ -1,5 +1,54 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Scientist/Analyst",
+    "section": "",
+    "text": "J’aide les entreprises à exploiter pleinement la puissance de leurs données et à créer de la valeur \n\n Clustering     Scoring      Reporting automatique   \n#Machine learning   #Statistique   #Connaissance client   #Retail   #Marketing   #CRM"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Segmentation RFM dans le Retail\n\n\n\n\n\n\n\nPython\n\n\nR\n\n\nMarketing\n\n\nConnaissance Client\n\n\n\n\nOptimisez votre marketing avec la segmentation RFM : en analysant la récence, la fréquence et le montant des achats pour cibler efficacement vos clients\n\n\n\n\n\n\nJan 13, 2024\n\n\nAbderrahmen DHIF\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Data Scientist/Analyst",
+    "section": "",
+    "text": "Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamment dans le retail. Mon expertise se concentre sur la création de scores d’appétence produits, la segmentation comportementale client/magasin, l’analyse de la mixité des produits, ainsi que dans la mise en place de bilans clients et de rapports automatiques. Ma mission principale est d’aider les entreprises à prendre des décisions stratégiques éclairées, en s’appuyant sur une compréhension approfondie de leurs clients, de leurs produits et de leur réseau de distribution."
+  },
+  {
+    "objectID": "cv.html#formation",
+    "href": "cv.html#formation",
+    "title": "Data Scientist/Analyst",
+    "section": "Formation",
+    "text": "Formation\nMASTER 2 STATISTIQUE Université de Reims, France 2015 — 2016  INGÉNIEUR EN STATISTIQUE  ESSAIT Tunis, Tunisie 2012 — 2015 CLASSE PRÉPARATOIRE MATH‑PHYSIQUE  Ecole préparatoire Kairouan, Tunisie 2010 — 2012"
+  },
+  {
+    "objectID": "cv.html#expériences-professionnelles",
+    "href": "cv.html#expériences-professionnelles",
+    "title": "Data Scientist/Analyst",
+    "section": "Expériences professionnelles",
+    "text": "Expériences professionnelles\n\nSenior Data Scientist/Analyst\nCaroll & Morgan 10/2022 – Aujourd’hui    Marketing clients\n Création de reporting interactifs en RMarkdown et RShiny   Segmentation comportementale des clients   Segmentation comportementale des boutiques   Développement de la connaissance client à l’échelle local   Reporting automatique et analyse des données clients   Mise en place des A/B tests pour des ciblages SMS/Email \n\n\nData Scientist/Analyst\nCaroll 06/2019 – 10/2022   Marketing clients"
+  },
+  {
+    "objectID": "cv.html#envirennement-technique",
+    "href": "cv.html#envirennement-technique",
+    "title": "Data Scientist/Analyst",
+    "section": "Envirennement technique",
+    "text": "Envirennement technique\nR, SQL, Python, Datatiku, SAS, Snowflake  TIDYVERSE, SHINY, RMARKDOWN, PANDAS,NUMPY …\n Clustering, Scoring   Data management, Statistiques descriptives, Machine learning, Reportings interactifs"
+  },
+  {
+    "objectID": "cv.html#centres-dintérêt",
+    "href": "cv.html#centres-dintérêt",
+    "title": "Data Scientist/Analyst",
+    "section": "Centres d’intérêt",
+    "text": "Centres d’intérêt\nPBC3‑Club de basket‑ball Joueur de basket-ball  Art génerative Création artistique à l’aide d’algorithmes"
+  },
+  {
     "objectID": "posts/2024-01-13_RFM/index.html#contexte",
     "href": "posts/2024-01-13_RFM/index.html#contexte",
     "title": "Segmentation RFM dans le Retail",
@@ -61,54 +110,5 @@
     "title": "Segmentation RFM dans le Retail",
     "section": "Conclusion",
     "text": "Conclusion\nLa segmentation RFM, avec sa simplicité et sa facilité d’implémentation, s’est révélée être un outil efficace pour cerner et cibler les clients. Elle permet de personnaliser les actions marketing et de renforcer la fidélité client.\nNéanmoins, elle présente des limites, principalement son focus sur des aspects financiers, en négligeant d’autres facettes importantes du comportement client comme les préférences ou les habitudes d’achat. De plus, elle peut entraîner une sur-sollicitation des clients les plus fidèles, risquant de diminuer l’efficacité des efforts marketing.\nÀ mesure que l’entreprise gagne en maturité Data, il sera nécessaire de s’orienter vers une segmentation plus complète et plus stratégique, telle que la segmentation comportementale, pour une analyse plus détaillée et précise des clients en prenant en compte leurs préférences et leurs habitudes d’achat."
-  },
-  {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "Data Scientist/Analyst",
-    "section": "",
-    "text": "Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamment dans le retail. Mon expertise se concentre sur la création de scores d’appétence produits, la segmentation comportementale client/magasin, l’analyse de la mixité des produits, ainsi que dans la mise en place de bilans clients et de rapports automatiques. Ma mission principale est d’aider les entreprises à prendre des décisions stratégiques éclairées, en s’appuyant sur une compréhension approfondie de leurs clients, de leurs produits et de leur réseau de distribution."
-  },
-  {
-    "objectID": "cv.html#formation",
-    "href": "cv.html#formation",
-    "title": "Data Scientist/Analyst",
-    "section": "Formation",
-    "text": "Formation\nMASTER 2 STATISTIQUE Université de Reims, France 2015 — 2016  INGÉNIEUR EN STATISTIQUE  ESSAIT Tunis, Tunisie 2012 — 2015 CLASSE PRÉPARATOIRE MATH‑PHYSIQUE  Ecole préparatoire Kairouan, Tunisie 2010 — 2012"
-  },
-  {
-    "objectID": "cv.html#expériences-professionnelles",
-    "href": "cv.html#expériences-professionnelles",
-    "title": "Data Scientist/Analyst",
-    "section": "Expériences professionnelles",
-    "text": "Expériences professionnelles\n\nSenior Data Scientist/Analyst\nCaroll & Morgan 10/2022 – Aujourd’hui    Marketing clients\n Création de reporting interactifs en RMarkdown et RShiny   Segmentation comportementale des clients   Segmentation comportementale des boutiques   Développement de la connaissance client à l’échelle local   Reporting automatique et analyse des données clients   Mise en place des A/B tests pour des ciblages SMS/Email \n\n\nData Scientist/Analyst\nCaroll 06/2019 – 10/2022   Marketing clients"
-  },
-  {
-    "objectID": "cv.html#envirennement-technique",
-    "href": "cv.html#envirennement-technique",
-    "title": "Data Scientist/Analyst",
-    "section": "Envirennement technique",
-    "text": "Envirennement technique\nR, SQL, Python, Datatiku, SAS, Snowflake  TIDYVERSE, SHINY, RMARKDOWN, PANDAS,NUMPY …\n Clustering, Scoring   Data management, Statistiques descriptives, Machine learning, Reportings interactifs"
-  },
-  {
-    "objectID": "cv.html#centres-dintérêt",
-    "href": "cv.html#centres-dintérêt",
-    "title": "Data Scientist/Analyst",
-    "section": "Centres d’intérêt",
-    "text": "Centres d’intérêt\nPBC3‑Club de basket‑ball Joueur de basket-ball  Art génerative Création artistique à l’aide d’algorithmes"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Segmentation RFM dans le Retail\n\n\n\n\n\n\n\nPython\n\n\nR\n\n\nMarketing\n\n\nConnaissance Client\n\n\n\n\nOptimisez votre marketing avec la segmentation RFM : en analysant la récence, la fréquence et le montant des achats pour cibler efficacement vos clients\n\n\n\n\n\n\nJan 13, 2024\n\n\nAbderrahmen DHIF\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data Scientist/Analyst",
-    "section": "",
-    "text": "J’aide les entreprises à exploiter pleinement la puissance de leurs données et à créer de la valeur \n\n Clustering     Scoring      Reporting automatique   \n#Machine learning   #Statistique   #Connaissance client   #Retail   #Marketing   #CRM"
   }
 ]

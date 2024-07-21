@@ -7,6 +7,9 @@ image: RFM.png
 format:
     html: 
         code-fold: true
+        include-in-header:
+          - text: |
+              <script type="application/ld+json" src="/shema_rfm.json"></script>
 draft: false 
 --- 
 
