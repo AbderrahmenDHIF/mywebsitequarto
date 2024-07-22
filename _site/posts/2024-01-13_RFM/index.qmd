@@ -37,7 +37,7 @@ format:
 draft: false 
 --- 
 
-![](RFM.png) {fig-alt="Segmentation RFM"}
+![](RFM.png){fig-alt="Segmentation RFM"}
  
 
 ## Contexte
