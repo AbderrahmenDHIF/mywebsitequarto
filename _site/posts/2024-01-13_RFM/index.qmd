@@ -28,7 +28,7 @@ format:
               },
               "image": {
                 "@type": "ImageObject",
-                "url": "https://abderrahmendhif.com/img/logo.png",
+                "url": "https://abderrahmendhif.com/posts/2024-01-13_rfm/reco-dark.png",
                 "height": 628,
                 "width": 628
               },
