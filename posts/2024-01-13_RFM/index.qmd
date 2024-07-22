@@ -4,7 +4,7 @@ description: "Optimisez votre marketing avec la segmentation RFM : en analysant 
 date: 01-13-2024
 categories: [Python, R, Marketing, Connaissance Client] 
 image: RFM.png
-format:
+format: 
     html: 
         code-fold: true
         include-in-header:
@@ -14,7 +14,7 @@ format:
               "@type": "TechArticle",
               "headline": "Qu’est-ce que la Segmentation RFM ?",
               "description": "La segmentation RFM est une technique de marketing utilisée pour analyser et catégoriser les clients en fonction de trois critères : Récence, Fréquence, Montant.",
-              "articleBody": "La segmentation RFM est une technique de marketing utilisée pour analyser et catégoriser les clients en fonction de trois critères : Récence, Fréquence, Montant. Récence: mesure le temps écoulé depuis le dernier achat d’un client. Fréquence: évalue à quelle fréquence un client effectue des achats sur une période donnée. Montant: analyse le total des dépenses d’un client.",
+              "articleBody": "La segmentation RFM est une technique de marketing utilisée pour analyser et catégoriser les clients en fonction de trois critères : Récence, Fréquence, Montant. Récence mesure le temps écoulé depuis le dernier achat d’un client. Fréquence évalue à quelle fréquence un client effectue des achats sur une période donnée. Montant analyse le total des dépenses d’un client.",
               "author": {
                 "@type": "Person",
                 "name": "Abderrahmen Dhif",
@@ -95,6 +95,7 @@ Ce jeu de données contient toutes les transactions réalisées pour une entrepr
 ```{r}
 #| warning: false
 #| message: false
+#| label: load-packages
 library(data.table)
 library(tidyverse)
 library(lubridate)
@@ -634,8 +635,6 @@ fig.update_layout(title="Répartition des clients par segment",margin=dict(t=50,
 
 La segmentation RFM permet de cibler plus efficacement les clients, en adaptant des actions marketing spécifiques à leurs comportements d'achat.
 
-![](reco-dark.png){fig-align="center" fig-alt="Recommandation Marketing/CRM"}
-
 **VIP** : Ces clients valorisent fortement l'image et contribuent au développement du CA de la marque.
 ==> Assurer la satisfaction : Se concentrer sur le maintien de leur satisfaction grâce à un service exceptionnel, des offres personnalisées et des avantages exclusifs. 
 Mettre en place des programmes de fidélité et des événements exclusifs pour les faire sentir valorisés et spéciaux.
@@ -645,7 +644,7 @@ Mettre en place des programmes de fidélité et des événements exclusifs pour 
 Proposer des recommandations de produits, des offres groupées et des promotions ciblées pour augmenter leurs dépenses.
 
 **Occasionnel** : Ces clients achètent occasionnellement auprès de la marque et peuvent également acheter des produits concurrents.
-==>Fidéliser : Mettre en œuvre des stratégies pour convertir ces acheteurs occasionnels en clients réguliers. 
+==> Fidéliser : Mettre en œuvre des stratégies pour convertir ces acheteurs occasionnels en clients réguliers. 
 Proposer des programmes de fidélité, des suivis personnalisés et des incitations pour les achats répétés afin de favoriser la fidélité à la marque.
 
 **Opportuniste** : Ces clients achètent principalement pendant les soldes ou lors de périodes de fortes remises.
@@ -665,8 +664,8 @@ Cela pourrait inclure des campagnes de réactivation spéciales, des messages pe
 Offrir des remises de bienvenue, des expériences d'onboarding faciles et du contenu éducatif sur la marque et les produits. 
 Suivre avec des communications personnalisées pour encourager un deuxième achat et commencer à bâtir la fidélité.
 
-
-   
+![](reco-dark.png){fig-align="center" fig-alt="Recommandation Marketing/CRM"}
+  
 ## Conclusion
 
 La segmentation RFM, avec sa simplicité et sa facilité d'implémentation, s'est révélée être un outil efficace pour cerner et cibler les clients. Elle permet de personnaliser les actions marketing et de renforcer la fidélité client.
