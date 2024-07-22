@@ -12,7 +12,7 @@ css: cv.css
 <br>
 
 <p class="auto">
-Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamment dans le retail. Mon expertise se concentre sur la création de scores d'appétence produits, la segmentation comportementale client/magasin, l'analyse de la mixité des produits, ainsi que dans la mise en place de bilans clients et de rapports automatiques. Ma mission principale est d'aider les entreprises à prendre des décisions stratégiques éclairées, en s'appuyant sur une compréhension approfondie de leurs clients, de leurs produits et de leur réseau de distribution. </p> ![](img/logo.png){width=50px height=50px style="float:right; margin-right:20px;"}
+Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamment dans le retail. Mon expertise se concentre sur la création de scores d'appétence produits, la segmentation comportementale client/magasin, l'analyse de la mixité des produits, ainsi que dans la mise en place de bilans clients et de rapports automatiques. Ma mission principale est d'aider les entreprises à prendre des décisions stratégiques éclairées, en s'appuyant sur une compréhension approfondie de leurs clients, de leurs produits et de leur réseau de distribution. </p> ![](img/logo.png){width=50px height=50px style="float:right; margin-right:20px;" fig-alt="abderrahmen dhif logo"}
 
 :::
 
@@ -32,7 +32,7 @@ Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamm
 
 ### Senior Data Scientist/Analyst
 
-***Caroll & Morgan*** [10/2022 -- Aujourd'hui]{.cvdate} <br> ![](img/crl-dark.png){width=30px height=60px style="float:right; margin-right:20px; margin-top:40px"} ![](img/mgn-dark.png){width=80px height=30px style="float:right; margin-right:20px; margin-top:60px"} 
+***Caroll & Morgan*** [10/2022 -- Aujourd'hui]{.cvdate} <br> ![](img/crl-dark.png){width=30px height=60px style="float:right; margin-right:20px; margin-top:40px" fig-alt="Caroll logo"} ![](img/mgn-dark.png){width=80px height=30px style="float:right; margin-right:20px; margin-top:60px" fig-alt="Morgan logo"} 
 ***Marketing clients***
 
 {{< fa solid check size=Small >}} Création de reporting interactifs en RMarkdown et {{< animate fadeInUp RShiny >}} <br>
@@ -44,7 +44,7 @@ Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamm
 
 ### Data Scientist/Analyst
 
-***Caroll*** [06/2019 -- 10/2022]{.cvdate} <br> ![](img/crl-dark.png){width=35px height=80px style="float:right; margin-right:40px; margin-top:40px"} 
+***Caroll*** [06/2019 -- 10/2022]{.cvdate} <br> ![](img/crl-dark.png){width=35px height=80px style="float:right; margin-right:40px; margin-top:40px" fig-alt="Caroll logo"} 
 ***Marketing clients***
 
 :::
@@ -60,19 +60,19 @@ Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamm
 
 ### Consultant Data Scientist/Analyst {style="page-break-before: always"}
 
-***AI&DATA*** [07/2017 -- 06/2019]{.cvdate} <br> ![](img/aid.png){width=50px height=50px style="float:right; margin-right:30px; margin-top:20px"} 
+***AI&DATA*** [07/2017 -- 06/2019]{.cvdate} <br> ![](img/aid.png){width=50px height=50px style="float:right; margin-right:30px; margin-top:20px" fig-alt="AI&Data logo"} 
 ***Marketing clients***
 
 {{< fa solid check size=Small >}} Consultant Data Scientist
 
-***Air France*** [12/2018 -- 06/2019]{.cvdate} <br> ![](img/airfrance-dark.png){width=120px height=35px style="float:right; margin-right:10px; margin-top:20px"} 
+***Air France*** [12/2018 -- 06/2019]{.cvdate} <br> ![](img/airfrance-dark.png){width=120px height=35px style="float:right; margin-right:10px; margin-top:20px" fig-alt="Air France logo"} 
 ***Customer & Market insight***
 
 {{< fa solid check size=Small >}} Optimisation de la segmentation clients <br>
 {{< fa solid check size=Small >}} Analyse textmining des commentaires <br>
 {{< fa solid check size=Small >}} Création de reporting interactifs en R Markdown <br>
 
-***Fnac‑Darty*** [11/2017 -- 10/2018]{.cvdate} <br> ![](img/fnac.png){width=50px height=50px style="float:right; margin-right:15px; margin-top:20px"} ![](img/Darty-dark.png){width=50px height=50px style="float:right; margin-right:15px; margin-top:20px"}
+***Fnac‑Darty*** [11/2017 -- 10/2018]{.cvdate} <br> ![](img/fnac.png){width=50px height=50px style="float:right; margin-right:15px; margin-top:20px" fig-alt="Fnac logo"} ![](img/Darty-dark.png){width=50px height=50px style="float:right; margin-right:15px; margin-top:20px" fig-alt="Darty logo"}
 ***Connaissance clients***
 
 {{< fa solid check size=Small >}} Manipulation de données et requétage sur un cluster hadoop <br>
@@ -82,7 +82,7 @@ Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamm
 {{< fa solid check size=Small >}} Ciblage et bilan de campagne marketing <br>
 {{< fa solid check size=Small >}} Analyse de ré‑achat <br>
 
-***Systeme U*** [08/2017 -- 11/2017]{.cvdate} <br> ![](img/Systeme_U_2009_logo.png){width=130px height=40px style="float:right; margin-right:1px; margin-top:20px"} 
+***Systeme U*** [08/2017 -- 11/2017]{.cvdate} <br> ![](img/Systeme_U_2009_logo.png){width=130px height=40px style="float:right; margin-right:1px; margin-top:20px" fig-alt="Systeme U logo"} 
 ***Connaissance clients***
 
 {{< fa solid check size=Small >}} Classification des produits selon la mixité <br>
@@ -90,7 +90,7 @@ Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamm
 {{< fa solid check size=Small >}} Etablissement des règles d’associations <br>
 
 ### Data Scientist/Analyst
-***Vivarte groupe*** [04/2016 -- 07/2017]{.cvdate} <br> ![](img/vivarte-dark.png){width=100px height=25px style="float:right; margin-right:10px; margin-top:20px"} 
+***Vivarte groupe*** [04/2016 -- 07/2017]{.cvdate} <br> ![](img/vivarte-dark.png){width=100px height=25px style="float:right; margin-right:10px; margin-top:20px" fig-alt="Vivarte logo"} 
 ***Connaissance clients***
 
 {{< fa solid check size=Small >}} Analyse de l’impact des opérations commerciales <br>
@@ -102,7 +102,7 @@ Spécialisé dans la data et la connaissance client depuis plus de 7 ans, notamm
 {{< fa solid check size=Small >}} Analyse du ré‑achat selon les leviers d’acquisition de trafic (SEO, SEA, display …) <br>
 
 ### Data Scientist/Analyst {style="page-break-before: always"} 
-***Ooredoo*** [03/2015 -- 07/2015]{.cvdate} <br> ![](img/Ooredoo.png){width=100px height=20px style="float:right; margin-right:10px; margin-top:20px"} 
+***Ooredoo*** [03/2015 -- 07/2015]{.cvdate} <br> ![](img/Ooredoo.png){width=100px height=20px style="float:right; margin-right:10px; margin-top:20px" fig-alt="Oooredoo logo"} 
 ***Connaissance clients***
 
 {{< fa solid check size=Small >}} Modélisation de la valeur client (CLV) <br>

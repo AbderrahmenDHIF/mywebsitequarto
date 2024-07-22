@@ -308,6 +308,7 @@ La représentation des clusters Kmeans selon les dimensions RFM aide à définir
 ```{r}
 #| warning: false
 #| message: false
+#| label: Recence-Frequence-Montant-plot-R
 fig <- plot_ly(data=data_fideles_km %>% filter(Frequence<40),x = ~Montant, y = ~Frequence, z = ~Recence,color = ~segment,
 text=~paste0("R:",Recence,'<br>',
 "F:",Frequence,'<br>',
@@ -323,7 +324,7 @@ fig
 ```{r}
 #| warning: false
 #| message: false
-
+#| label: Frequence-Recence-plot-R
 ggplot(data_fideles_km %>% filter(Frequence<20))+
 geom_point(aes(x=Frequence,y=Recence,color=segment),alpha=0.3)+
 geom_hline(yintercept=30.5*6,lty=2 ,color="#D00000",size=1)+
@@ -341,7 +342,7 @@ theme_bw()
 ```{r}
 #| warning: false
 #| message: false
-
+#| label: Frequence-Montant-plot-R
 ggplot(data_fideles_km %>% filter(Frequence<40))+
 geom_point(aes(x=Frequence,y=Montant,color=segment),alpha=0.3)+
 geom_hline(yintercept=650,lty=2 ,color="#D00000",size=1)+
@@ -383,7 +384,7 @@ theme_bw()  +labs(title='Seuils Fréquence et Montant')
 ```{python}
 #| warning: false
 #| message: false
-
+#| label: Recence-Frequence-Montant-plot-py
 # Filtrer le DataFrame
 data_fideles_km_filtered = data_fideles[data_fideles['Frequence'] < 40]
 
@@ -404,7 +405,7 @@ fig.show()
 ```{python}
 #| warning: false
 #| message: false
-
+#| label: Recence-Frequence-plot-py
 
 
 # Filtre les données pour les cas où la Fréquence est inférieure à 20
@@ -443,7 +444,7 @@ plt.show()
 ```{python}
 #| warning: false
 #| message: false
-
+#| label: Frequence-Montant-plot-py
 
 
 fig, ax = plt.subplots()
@@ -508,6 +509,7 @@ la description détaillée des segments est une étape fondamentale pour saisir 
 ```{r}
 #| warning: false
 #| message: false
+#| label: Répartition-des-clients-par-segment-plot-R
 
 # Définition des seuils
 seuil_R=30.5*6 #(6 mois)
@@ -566,7 +568,7 @@ fig
 ```{python}
 #| warning: false
 #| message: false
-
+#| label: Répartition-des-clients-par-segment-plot-py
 
 # Définition des seuils
 seuil_R = 30.5 * 6  # 6 mois
