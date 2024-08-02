@@ -157,13 +157,13 @@ Dans cette partie, nous calculons les variables RFM
 data_rfm = data %>%
   group_by(CustomerID) %>%
   summarise(Frequence = n_distinct(InvoiceNo),  # F: Nombre d'achats
-  Montant = sum(UnitPrice), # M: Montant par client
+  Montant = sum(UnitPrice*Quantity), # M: Montant par client
   dernier_achat=max(InvoiceDate), # Date du dernier achat
   premier_achat=min(InvoiceDate))  %>% # Date du premier achat
   ungroup() %>% 
   mutate(Recence=as.numeric(max(dernier_achat)-dernier_achat), # Calculer la Recence 
   Anciennete=as.numeric(max(dernier_achat)-premier_achat)) %>% # Calculer l'Anciennete
-  filter(Montant<1000) %>% # Filtrer les lignes où Montant < 1000
+  filter(Montant<10000) %>% # Filtrer les lignes où Montant < 10 000
   select(-dernier_achat,-premier_achat) #exclure les colonnes 'dernier_achat' et 'premier_achat'
 
   knitr::kable(head(data_rfm,2),format = "html")
@@ -176,9 +176,11 @@ data_rfm = data %>%
 #| message: false
 
 # Grouper les données par CustomerID et calculer les aggrégats
+data['TotalPrice'] = data['UnitPrice'] * data['Quantity']
+
 data_rfm = data.groupby('CustomerID').agg(
     Frequence=('InvoiceNo', 'nunique'),  # F: Nombre d'achats
-    Montant=('UnitPrice', 'sum'),  # M: Montant par client
+    Montant=('TotalPrice', 'sum'),  # M: Montant par client
     dernier_achat=('InvoiceDate', 'max'),  # Date du dernier achat
     premier_achat=('InvoiceDate', 'min')  # Date du premier achat
 ).reset_index()
@@ -187,8 +189,8 @@ data_rfm = data.groupby('CustomerID').agg(
 data_rfm['Recence'] = (data_rfm['dernier_achat'].max() - data_rfm['dernier_achat']).dt.days
 data_rfm['Anciennete'] = (data_rfm['dernier_achat'].max() - data_rfm['premier_achat']).dt.days
 
-# Filtrer les lignes où Montant < 1000 et exclure les colonnes 'dernier_achat' et 'premier_achat'
-data_rfm = data_rfm[data_rfm['Montant'] < 1000].drop(columns=['dernier_achat', 'premier_achat'])
+# Filtrer les lignes où Montant < 10 000 et exclure les colonnes 'dernier_achat' et 'premier_achat'
+data_rfm = data_rfm[data_rfm['Montant'] < 10000].drop(columns=['dernier_achat', 'premier_achat'])
 
 display(data_rfm.head(2)) 
 
@@ -345,29 +347,29 @@ theme_bw()
 #| label: Frequence-Montant-plot-R
 ggplot(data_fideles_km %>% filter(Frequence<40))+
 geom_point(aes(x=Frequence,y=Montant,color=segment),alpha=0.3)+
-geom_hline(yintercept=650,lty=2 ,color="#D00000",size=1)+
-annotate("text",x=35,y=670,label="Seuil 1 Montant",color="#BEBDBD")+
-annotate("text",x=35,y=630,label="650€",color="#848484")+
-annotate("label",x=35,y=800,label="VIP",color="#0B9BAD",size=3,font="face")+
+geom_hline(yintercept=4500,lty=2 ,color="#D00000",size=1)+
+annotate("text",x=35,y=4700,label="Seuil 1 Montant",color="#BEBDBD")+
+annotate("text",x=35,y=4200,label="4 500€",color="#848484")+
+annotate("label",x=35,y=8000,label="VIP",color="#0B9BAD",size=3,font="face")+
 
-geom_hline(yintercept=200,lty=2 ,color="#D00000",size=1)+
-annotate("text",x=35,y=220,label="Seuil 2 Montant",color="#BEBDBD")+
-annotate("text",x=35,y=180,label="200€",color="#848484")+
+geom_hline(yintercept=1800,lty=2 ,color="#D00000",size=1)+
+annotate("text",x=35,y=2020,label="Seuil 2 Montant",color="#BEBDBD")+
+annotate("text",x=35,y=1600,label="1 800€",color="#848484")+
 
-annotate("segment", x = 6.3, xend = 6.3, y = 650, yend = 200,lty=2 ,color="#D00000",size=1)+
-geom_curve(aes(x=10, y=500, xend=6.3, yend=400),
+annotate("segment", x = 6.3, xend = 6.3, y = 4500, yend = 1800,lty=2 ,color="#D00000",size=1)+
+geom_curve(aes(x=10, y=3000, xend=6.3, yend=2200),
                arrow = arrow(length=unit(.2, 'cm')),color="#848484", curvature = -0.5)+
 geom_curve(aes(x=10, y=10, xend=3.3, yend=0),
                arrow = arrow(length=unit(.2, 'cm')),color="#848484", curvature = -0.1)+
 
-annotate("text",x=10,y=520,label="Seuil 1 Fréquence: 6",color="#848484")+
-annotate("text",x=10,y=20,label="Seuil 2 Fréquence: 3",color="#848484")+
+annotate("text",x=10,y=3000,label="Seuil 1 Fréquence: 6",color="#848484")+
+annotate("text",x=10,y=100,label="Seuil 2 Fréquence: 3",color="#848484")+
 
-annotate("label",x=35,y=400,label="REGULIER",color="#0064D0",size=3,font="face")+
-annotate("label",x=3,y=400,label="OCCASIONNEL",color="#63A10F",size=3,font="face")+
-annotate("segment", x = 3.3, xend = 3.3, y = 0, yend = 200,lty=2 ,color="#D00000",size=1)+
+annotate("label",x=35,y=3000,label="REGULIER",color="#0064D0",size=3,font="face")+
+annotate("label",x=3,y=3100,label="OCCASIONNEL",color="#63A10F",size=3,font="face")+
+annotate("segment", x = 3.3, xend = 3.3, y = 0, yend = 1800,lty=2 ,color="#D00000",size=1)+
 annotate("label",x=35,y=100,label="PETIT",color="#D19403",size=3,font="face")+
-annotate("label",x=3,y=100,label="OPPORTUNISTE",color="#D00000",size=3,font="face")+
+annotate("label",x=3,y=800,label="OPPORTUNISTE",color="#D00000",size=3,font="face")+
 theme_bw()  +labs(title='Seuils Fréquence et Montant')
 
 ```
@@ -424,12 +426,13 @@ ax.set_facecolor('white')
 ax.axhline(y=30.5*6, linestyle='--', color='#D00000', linewidth=1)
 ax.text(15, 32*6, "Seuil Récence", color="#BEBDBD")
 ax.text(15, 27*6, "6 mois", color="#848484")
-ax.text(15, 300, "ENDORMIS", color="#AD0BA5", fontsize=12)
+ax.text(10, 300, "ENDORMIS", color="#AD0BA5", fontsize=12)
 ax.set_xlabel('Fréquence')
 ax.set_ylabel('Récence')
 ax.set_title('Seuil Récence')
 
-
+handles, labels = scatter.legend_elements()
+ax.legend(handles, labels, loc='best', title='Segment')
 
 
 plt.show()
@@ -446,49 +449,52 @@ plt.show()
 #| message: false
 #| label: Frequence-Montant-plot-py
 
-
-fig, ax = plt.subplots()
-
-
-scatter = ax.scatter(data_fideles_km_filtered['Frequence'], data_fideles_km_filtered['Montant'], alpha=0.1, c=data_fideles_km_filtered['segment'])
-fig.set_facecolor('white')  
-ax.set_facecolor('white') 
-ax.axhline(650, linestyle='--', color='#D00000', linewidth=1.5)
-ax.axhline(200, linestyle='--', color='#D00000', linewidth=1.5)
+fig, ax = plt.subplots(figsize=(10, 6))
 
 
-ax.text(35, 670, 'Seuil 1 Montant', color='#BEBDBD')
-ax.text(35, 610, '650€', color='#848484')
-ax.text(35, 800, 'VIP', color='#0B9BAD', fontsize=12)
-
-ax.text(35, 220, 'Seuil 2 Montant', color='#BEBDBD')
-ax.text(35, 160, '200€', color='#848484')
-
-ax.text(35, 400, 'REGULIER', color='#0064D0', fontsize=12)
-ax.text(0, 400, 'OCCASIONNEL', color='#63A10F', fontsize=12)
-ax.text(35, 100, 'PETIT', color='#D19403', fontsize=12)
-ax.text(0, 100, 'OPPORTUNISTE', color='#D00000', fontsize=12)
+scatter = ax.scatter(data_fideles_km_filtered['Frequence'], data_fideles_km_filtered['Montant'],
+                     alpha=0.1, c=data_fideles_km_filtered['segment'].astype('category').cat.codes, cmap='viridis')
 
 
-ax.annotate("", xy=(3.3, 0), xytext=(3.3, 200),
-             arrowprops=dict(arrowstyle="-", linestyle="--", color="#D00000", linewidth=1.5))
-ax.annotate("", xy=(6.3, 200), xytext=(6.3, 650),
-             arrowprops=dict(arrowstyle="-", linestyle="--", color="#D00000", linewidth=1.5))
-ax.annotate("", xy=(10, 500), xytext=(6.3, 400),
-             arrowprops=dict(arrowstyle="->", color="#848484"))
-ax.annotate("", xy=(10, 10), xytext=(3.3, 0),
-             arrowprops=dict(arrowstyle="->", color="#848484"))
+fig.set_facecolor('white')
+ax.set_facecolor('white')
 
-ax.text(10, 520, 'Seuil 1 Fréquence: 6', color='#848484')
-ax.text(10, 20, 'Seuil 2 Fréquence: 3', color='#848484')
 
+ax.axhline(4500, linestyle='--', color='#D00000', linewidth=1)
+ax.axhline(1800, linestyle='--', color='#D00000', linewidth=1)
+
+
+ax.text(34, 4700, 'Seuil 1 Montant', color='#BEBDBD')
+ax.text(35, 4200, '4 500€', color='#848484')
+ax.text(30, 8000, 'VIP', color='#0B9BAD', fontsize=9, bbox=dict(facecolor='white', edgecolor='none'))
+
+ax.text(34, 2020, 'Seuil 2 Montant', color='#BEBDBD')
+ax.text(35, 1500, '1 800€', color='#848484')
+
+ax.text(30, 3000, 'REGULIER', color='#0064D0', fontsize=9, bbox=dict(facecolor='white', edgecolor='none'))
+ax.text(0, 3100, 'OCCASIONNEL', color='#63A10F', fontsize=9, bbox=dict(facecolor='white', edgecolor='none'))
+ax.text(30, 100, 'PETIT', color='#D19403', fontsize=9, bbox=dict(facecolor='white', edgecolor='none'))
+ax.text(0, 800, 'OPPORTUNISTE', color='#D00000', fontsize=9, bbox=dict(facecolor='white', edgecolor='none'))
+
+ax.annotate("", xy=(3.3, 0), xytext=(3.3, 1800), arrowprops=dict(arrowstyle="-", linestyle="--", color="#D00000", linewidth=1))
+ax.annotate("", xy=(6.3, 1800), xytext=(6.3, 4500), arrowprops=dict(arrowstyle="-", linestyle="--", color="#D00000", linewidth=1))
+ax.annotate("", xy=(6.3, 2200), xytext=(10, 3000), arrowprops=dict(arrowstyle="->", color="#848484", connectionstyle="arc3,rad=-0.5"))
+ax.annotate("", xy=(3.3, 0), xytext=(10, 10), arrowprops=dict(arrowstyle="->", color="#848484", connectionstyle="arc3,rad=-0.1"))
+
+ax.text(10, 3000, 'Seuil 1 Fréquence: 6', color='#848484')
+ax.text(10, 100, 'Seuil 2 Fréquence: 3', color='#848484')
 
 ax.set_xlabel('Fréquence')
 ax.set_ylabel('Montant')
 ax.set_title('Seuils Fréquence et Montant')
 
+handles, labels = scatter.legend_elements()
+ax.legend(handles, labels, loc='best', title='Segment')
 
 plt.show()
+
+
+
 
 
 ```
@@ -513,8 +519,8 @@ la description détaillée des segments est une étape fondamentale pour saisir 
 
 # Définition des seuils
 seuil_R=30.5*6 #(6 mois)
-seuil_M1=650 
-seuil_M2=200 
+seuil_M1=4500 
+seuil_M2=1800 
 seuil_F=6
 seuil_F2=3
 
@@ -572,8 +578,8 @@ fig
 
 # Définition des seuils
 seuil_R = 30.5 * 6  # 6 mois
-seuil_M1 = 650
-seuil_M2 = 200
+seuil_M1 = 4500
+seuil_M2 = 1800
 seuil_F = 6
 seuil_F2 = 3
 

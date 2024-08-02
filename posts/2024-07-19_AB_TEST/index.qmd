@@ -7,10 +7,37 @@ image: AB.png
 format:
     html: 
         code-fold: true
+        include-in-header:
+          - text: | 
+              <script type="application/ld+json">{
+              "@context": "https://schema.org",
+              "@type": "TechArticle",
+              "headline": "Qu'est-ce que l'A/B testing ?",
+              "description": "L'A/B testing est une méthode comparative qui consiste à présenter deux versions (A et B) d'un élément à différents segments de votre audience.",
+              "articleBody": "L'A/B testing est une méthode comparative qui consiste à présenter deux versions (A et B) d'un élément à différents segments de votre audience. L'objectif est de déterminer quelle version performe le mieux selon des critères prédéfinis.",
+              "author": {
+                "@type": "Person",
+                "name": "Abderrahmen Dhif",
+                "jobTitle": "Data Sientist/Analyst",
+                "url":"https://abderrahmendhif.com/cv"
+              },
+              "mainEntity": {
+                "@type": "Thing",
+                "name": "A/B testing ",
+                "description": "une méthode comparative qui consiste à présenter deux versions (A et B) d'un élément à différents segments de votre audience."
+              },
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://abderrahmendhif.com/posts/2024-07-19_AB_TEST/AB.png",
+                "height": 628,
+                "width": 628
+              },
+              "datePublished": "2024-07-19T08:00:00+08:00"
+              }</script>           
 draft: true 
 --- 
 
-![](AB.png)
+![](AB.png){fig-alt="AB testing"}
  
 
 ## Contexte
@@ -29,7 +56,6 @@ Dans le contexte des campagnes CRM, ces tests peuvent porter sur divers élémen
 * Le contenu des messages
 * La mise en page et le design
 * Les moments d'envoi
-* les segments qui régissent le mieux aux emails/SMS
 
 Au-delà de ces optimisations tactiques, l'A/B testing en CRM peut répondre à des questions stratégiques cruciales, comme :
 "Mes campagnes CRM génèrent-elles réellement du chiffre d'affaires additionnel ?"
