@@ -362,8 +362,8 @@ geom_curve(aes(x=10, y=3000, xend=6.3, yend=2200),
 geom_curve(aes(x=10, y=10, xend=3.3, yend=0),
                arrow = arrow(length=unit(.2, 'cm')),color="#848484", curvature = -0.1)+
 
-annotate("text",x=10,y=3000,label="Seuil 1 Fréquence: 6",color="#848484")+
-annotate("text",x=10,y=100,label="Seuil 2 Fréquence: 3",color="#848484")+
+annotate("text",x=13,y=3000,label="Seuil 1 Fréquence: 6",color="#848484")+
+annotate("text",x=13,y=200,label="Seuil 2 Fréquence: 3",color="#848484")+
 
 annotate("label",x=35,y=3000,label="REGULIER",color="#0064D0",size=3,font="face")+
 annotate("label",x=3,y=3100,label="OCCASIONNEL",color="#63A10F",size=3,font="face")+
