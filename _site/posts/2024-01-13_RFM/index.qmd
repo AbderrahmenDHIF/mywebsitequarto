@@ -95,7 +95,7 @@ Ce jeu de données contient toutes les transactions réalisées pour une entrepr
 ```{r}
 #| warning: false
 #| message: false
-#| label: load-packages
+#| label: load-packages-R
 library(data.table)
 library(tidyverse)
 library(lubridate)
@@ -103,7 +103,7 @@ library(plotly)
 
 data <- fread("data/OnlineRetail.csv", drop = c(3,8))%>%
   mutate(InvoiceDate = dmy(str_sub(InvoiceDate, 1, 10))) %>% # Convertir InvoiceDate en datetime
-  filter(UnitPrice>0,Quantity>0) # Filtrer les lignes
+  filter(UnitPrice>0,Quantity>0,!is.na(CustomerID)) # Filtrer les lignes
 
   knitr::kable(head(data,2),format = "html")
 ```
@@ -120,6 +120,7 @@ reticulate::use_python('C:\\Python311\\python.exe')
 ```{python}
 #| warning: false
 #| message: false
+#| label: load-packages-Py
 
 import pandas as pd
 import numpy as np 
@@ -132,7 +133,7 @@ import plotly.graph_objects as go
 
 data = pd.read_csv('data/OnlineRetail.csv', encoding='ISO-8859-1')
 data.drop(data.columns[[2, 7]],axis=1,inplace=True)
-data = data[(data['UnitPrice'] > 0) & (data['Quantity'] > 0)] # Filtrer les lignes
+data = data[(data['UnitPrice'] > 0) & (data['Quantity'] > 0) & (data['CustomerID'].notna())] # Filtrer les lignes
 data['InvoiceDate'] = pd.to_datetime(data['InvoiceDate'].str.slice(0, 10), dayfirst=True) # Convertir InvoiceDate en datetime
 
 display(data.head(2)) 
